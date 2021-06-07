@@ -430,16 +430,15 @@ class BottomMenuClipper extends CustomClipper<Path> {
     var path = new Path();
     var offsetX = 80.0;
     var offsetY = 20.0;
+    var buttonWidth = size.width * 2 / 8;
     double degToRad(num deg) => deg * (Math.pi / 180.0);
 
     path.lineTo(size.width / 2 - offsetX, 0);
     path.lineTo(size.width / 2 - offsetX / 2, offsetY);
-//     canvas.drawArc(new Rect.fromLTWH(0.0, 0.0, size.width/2, size.height/2),
-// 0.175, 0.349, false, paint); //107
-    //path.addArc(Rect.fromLTWH(0, 0, size.width, size.height), degToRad(180), degToRad(90));
     path.addArc(
         Rect.fromCircle(
-            center: Offset(size.width / 2, 107 / 2), radius: 107 / 2),
+            center: Offset(size.width / 2, buttonWidth / 2),
+            radius: buttonWidth / 2),
         degToRad(-141),
         degToRad(102));
     path.lineTo(size.width / 2 + offsetX / 2, offsetY);
