@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as Math;
 
+import 'package:flutter_design_case_car_advertisement/widgets/selectableButton.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -77,53 +79,135 @@ class HomePage extends StatelessWidget {
                       child: Stack(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(40, 0, 40, 22),
-                            child: ClipPath(
-                              clipper: FirstClipper(),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Color(0xFFb81a48), //B41A47 //bd1c4b
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(48))),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
-                            child: ClipPath(
-                              clipper: SecondClipper(),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Color(
-                                        0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(48))),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 45),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x44000000),
-                                    blurRadius: 50.0,
-                                    offset: Offset(0, -10),
-                                  ),
-                                ],
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(48)),
-                              ),
+                            padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                            child: AspectRatio(
+                              aspectRatio: 0.97,
                               child: ClipPath(
-                                clipper: ThirdClipper(),
+                                clipper: FirstClipper(),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(48),
-                                        bottomRight: Radius.circular(48)),
+                                      color: Color(0xFFb81a48),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(48))),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                            child: AspectRatio(
+                              aspectRatio: 1.13,
+                              child: ClipPath(
+                                clipper: SecondClipper(),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color(
+                                          0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(48))),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: AspectRatio(
+                              aspectRatio: 1.3,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x44000000),
+                                      blurRadius: 50.0,
+                                      offset: Offset(0, -10),
+                                    ),
+                                  ],
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(48)),
+                                ),
+                                child: ClipPath(
+                                  clipper: ThirdClipper(),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(48),
+                                          bottomRight: Radius.circular(48)),
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text("Select Date"),
+                                        Text("Select available slot"),
+                                        Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(Icons.arrow_left),
+                                              Text("June"),
+                                              Icon(Icons.arrow_right)
+                                            ]),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                10, 0, 10, 0),
+                                            child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Flexible(
+                                                    child: SelectableButton(
+                                                      icon: Icons.ac_unit,
+                                                      title: "15",
+                                                      subtitle: "MON",
+                                                      isSelected: false,
+                                                      isUnavailable: false,
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    child: SelectableButton(
+                                                      icon: Icons.ac_unit,
+                                                      title: "16",
+                                                      subtitle: "TUE",
+                                                      isSelected: false,
+                                                      isUnavailable: true,
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    child: SelectableButton(
+                                                      icon: Icons.ac_unit,
+                                                      title: "19",
+                                                      subtitle: "FRI",
+                                                      isSelected: true,
+                                                      isUnavailable: false,
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    child: SelectableButton(
+                                                      icon: Icons.ac_unit,
+                                                      title: "22",
+                                                      subtitle: "MON",
+                                                      isSelected: false,
+                                                      isUnavailable: false,
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    child: SelectableButton(
+                                                      icon: Icons.ac_unit,
+                                                      title: "25",
+                                                      subtitle: "THU",
+                                                      isSelected: false,
+                                                      isUnavailable: true,
+                                                    ),
+                                                  ),
+                                                ]),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
