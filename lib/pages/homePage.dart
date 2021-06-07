@@ -7,10 +7,69 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "SCHEDULE WRAP",
+            style: TextStyle(
+                color: Color(0x0FFC11A52),
+                fontSize: 15,
+                fontWeight: FontWeight.bold),
+          ),
+          leading: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+            child: TextButton(
+              style: TextButton.styleFrom(
+                  primary: Colors.white,
+                  backgroundColor: Colors.transparent,
+                  onSurface: Colors.red,
+                  shadowColor: Colors.transparent),
+              onPressed: () {},
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(22, 0, 12, 0),
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+              child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      backgroundColor: Colors.transparent,
+                      onSurface: Colors.red,
+                      shadowColor: Colors.transparent),
+                  child: Container(
+                    height: 30,
+                    width: 70,
+                    child: FittedBox(
+                      child: Icon(Icons.contact_support_sharp,
+                          color: Color(0x0FFE5E8EE)),
+                    ),
+                  )),
+            )
+          ],
+          backgroundColor: Color(0xFFb81a48), //Colors.white,
+          shadowColor: Colors.transparent,
+          flexibleSpace: Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 8.5, 0),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, //B41A47 //bd1c4b
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(48),
+                      topRight: Radius.circular(48))),
+            ),
+          ),
+        ),
         body: Container(
             color: Color(0x0FFC11A52),
             child: Padding(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                 child: Column(
                   children: [
                     Expanded(
@@ -43,30 +102,28 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: AspectRatio(
-                              aspectRatio: 1,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color(0x44000000),
-                                      blurRadius: 50.0,
-                                      offset: Offset(0, -10),
-                                    ),
-                                  ],
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(48)),
-                                ),
-                                child: ClipPath(
-                                  clipper: ThirdClipper(),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(48)),
-                                    ),
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 45),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x44000000),
+                                    blurRadius: 50.0,
+                                    offset: Offset(0, -10),
+                                  ),
+                                ],
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(48)),
+                              ),
+                              child: ClipPath(
+                                clipper: ThirdClipper(),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(48),
+                                        bottomRight: Radius.circular(48)),
                                   ),
                                 ),
                               ),
