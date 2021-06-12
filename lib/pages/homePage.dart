@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:math' as Math;
 
 import 'package:flutter_design_case_car_advertisement/widgets/selectableButton.dart';
@@ -9,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0x0FFC11A52),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text(
             "SCHEDULE WRAP",
@@ -69,277 +70,335 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
-                    child: AspectRatio(
-                      aspectRatio: 0.97,
-                      child: ClipPath(
-                        clipper: FirstClipper(),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFb81a48),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(48))),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: AspectRatio(
-                      aspectRatio: 1.13,
-                      child: ClipPath(
-                        clipper: SecondClipper(),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color:
-                                  Color(0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(48))),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: AspectRatio(
-                      aspectRatio: 1.3,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0x44000000),
-                              blurRadius: 50.0,
-                              offset: Offset(0, -10),
+        body: SafeArea(
+          bottom: true,
+          child: Container(
+            color: Color(0x0FFC11A52),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                        child: AspectRatio(
+                          aspectRatio: 0.97,
+                          child: ClipPath(
+                            clipper: FirstClipper(),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFb81a48),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(48))),
                             ),
-                          ],
-                          borderRadius: BorderRadius.all(Radius.circular(48)),
+                          ),
                         ),
-                        child: ClipPath(
-                          clipper: ThirdClipper(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: AspectRatio(
+                          aspectRatio: 1.13,
+                          child: ClipPath(
+                            clipper: SecondClipper(),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Color(
+                                      0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(48))),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: AspectRatio(
+                          aspectRatio: 1.3,
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(48),
-                                  bottomRight: Radius.circular(48)),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                    child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                                    child: Text("Select Date",
-                                        style: TextStyle(fontSize: 34)),
-                                  ),
-                                )),
-                                Text("Select available slot",
-                                    style: TextStyle(color: Color(0xFFB1BABf))),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    //color: Colors.yellow,
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.arrow_left,
-                                            color: Color(0xFFB1BABF),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                30, 0, 30, 0),
-                                            child: Text("JUNE",
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color(0xFFB1BABF))),
-                                          ),
-                                          Icon(
-                                            Icons.arrow_right,
-                                            color: Color(0xFFB1BABF),
-                                          )
-                                        ]),
-                                  ),
+                              color: Colors.transparent,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0x44000000),
+                                  blurRadius: 50.0,
+                                  offset: Offset(0, -10),
                                 ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Container(
-                                    //color: Colors.lightBlue,
-                                    padding: const EdgeInsets.fromLTRB(
-                                        10, 0, 10, 60),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Flexible(
-                                            child: SelectableButton(
-                                              icon: Icons.ac_unit,
-                                              title: "15",
-                                              subtitle: "MON",
-                                              isSelected: false,
-                                              isUnavailable: false,
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: SelectableButton(
-                                              icon: Icons.ac_unit,
-                                              title: "16",
-                                              subtitle: "TUE",
-                                              isSelected: false,
-                                              isUnavailable: true,
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: SelectableButton(
-                                              icon: Icons.ac_unit,
-                                              title: "19",
-                                              subtitle: "FRI",
-                                              isSelected: true,
-                                              isUnavailable: false,
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: SelectableButton(
-                                              icon: Icons.ac_unit,
-                                              title: "22",
-                                              subtitle: "MON",
-                                              isSelected: false,
-                                              isUnavailable: false,
-                                            ),
-                                          ),
-                                          Flexible(
-                                            child: SelectableButton(
-                                              icon: Icons.ac_unit,
-                                              title: "25",
-                                              subtitle: "THU",
-                                              isSelected: false,
-                                              isUnavailable: true,
-                                            ),
-                                          ),
-                                        ]),
-                                  ),
-                                )
                               ],
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(48)),
                             ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-                child: Stack(
-              children: [
-                Container(
-                    child: Column(
-                  children: [
-                    Expanded(
-                        child: ListView(
-                      children: [
-                        Container(
-                          color: Colors.red,
-                          height: 100,
-                        ),
-                        Container(
-                          color: Colors.green,
-                          height: 100,
-                        ),
-                        Container(
-                          color: Colors.yellow,
-                          height: 100,
-                        ),
-                        Container(
-                          color: Colors.blue,
-                          height: 100,
-                        ),
-                        Container(
-                          color: Colors.purple,
-                          height: 100,
-                        ),
-                        Container(
-                          color: Colors.orange,
-                          height: 100,
-                        ),
-                        Container(
-                          color: Colors.pink,
-                          height: 100,
-                        ),
-                      ],
-                    ))
-                  ],
-                )),
-                Align(
-                    alignment: Alignment.bottomCenter,
-                    child: SafeArea(
-                      child: ClipPath(
-                        clipper: BottomMenuClipper(),
-                        child: Container(
-                          height: 100,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(40),
-                                  topRight: Radius.circular(40))),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                  flex: 3,
-                                  child: Container(color: Colors.transparent)),
-                              Expanded(
-                                  flex: 2,
-                                  child: ClipOval(
-                                    child: AspectRatio(
-                                      aspectRatio: 1,
+                            child: ClipPath(
+                              clipper: ThirdClipper(),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(48),
+                                      bottomRight: Radius.circular(48)),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                        child: Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            0, 0, 0, 8),
+                                        child: Text("Select Date",
+                                            style: TextStyle(fontSize: 34)),
+                                      ),
+                                    )),
+                                    Text("Select available slot",
+                                        style: TextStyle(
+                                            color: Color(0xFFB1BABf))),
+                                    Expanded(
+                                      flex: 1,
                                       child: Container(
                                         //color: Colors.yellow,
-                                        child: TextButton(
-                                            onPressed: () {},
-                                            child: Container(
-                                              height: 50,
-                                              //color: Colors.amber,
-                                              child: FittedBox(
-                                                  child: Icon(Icons
-                                                      .arrow_upward_sharp)),
-                                            )),
-                                        decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0xFFDADADA),
-                                              blurRadius: 20.0,
-                                              offset: Offset(4, 4),
-                                            ),
-                                          ],
-                                        ),
+                                        child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.arrow_left,
+                                                color: Color(0xFFB1BABF),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        30, 0, 30, 0),
+                                                child: Text("JUNE",
+                                                    style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color:
+                                                            Color(0xFFB1BABF))),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_right,
+                                                color: Color(0xFFB1BABF),
+                                              )
+                                            ]),
                                       ),
                                     ),
-                                  )),
-                              Expanded(
-                                  flex: 3,
-                                  child: Container(color: Colors.transparent))
-                            ],
+                                    Expanded(
+                                      flex: 2,
+                                      child: Container(
+                                        //color: Colors.lightBlue,
+                                        padding: const EdgeInsets.fromLTRB(
+                                            10, 0, 10, 60),
+                                        child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Flexible(
+                                                child: SelectableButton(
+                                                  icon: Icons.ac_unit,
+                                                  title: "15",
+                                                  subtitle: "MON",
+                                                  isSelected: false,
+                                                  isUnavailable: false,
+                                                ),
+                                              ),
+                                              Flexible(
+                                                child: SelectableButton(
+                                                  icon: Icons.ac_unit,
+                                                  title: "16",
+                                                  subtitle: "TUE",
+                                                  isSelected: false,
+                                                  isUnavailable: true,
+                                                ),
+                                              ),
+                                              Flexible(
+                                                child: SelectableButton(
+                                                  icon: Icons.ac_unit,
+                                                  title: "19",
+                                                  subtitle: "FRI",
+                                                  isSelected: true,
+                                                  isUnavailable: false,
+                                                ),
+                                              ),
+                                              Flexible(
+                                                child: SelectableButton(
+                                                  icon: Icons.ac_unit,
+                                                  title: "22",
+                                                  subtitle: "MON",
+                                                  isSelected: false,
+                                                  isUnavailable: false,
+                                                ),
+                                              ),
+                                              Flexible(
+                                                child: SelectableButton(
+                                                  icon: Icons.ac_unit,
+                                                  title: "25",
+                                                  subtitle: "THU",
+                                                  isSelected: false,
+                                                  isUnavailable: true,
+                                                ),
+                                              ),
+                                            ]),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ))
+                    ],
+                  ),
+                ),
+                Expanded(
+                    child: Stack(
+                  children: [
+                    Container(
+                        child: Column(
+                      children: [
+                        Expanded(
+                            child: ListView(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
+                              padding: EdgeInsets.fromLTRB(30, 10, 20, 10),
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFCCA1E56),
+                                border: Border.all(color: Color(0xFFD62D64)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x33000000),
+                                    blurRadius: 20.0,
+                                    offset: Offset(4, 4),
+                                  ),
+                                ],
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    width: 6,
+                                    height: 6,
+                                    decoration: new BoxDecoration(
+                                      color: Color(0xFFFF92B7),
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          25, 0, 0, 0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            "8:30 AM",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 16),
+                                          ),
+                                          Text(
+                                            "CAR WRAP SHOP",
+                                            style: TextStyle(
+                                                color: Color(0xFFFF92B7),
+                                                fontSize: 16),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    child: Icon(Icons.arrow_forward_outlined,
+                                        color: Colors.black),
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Colors.transparent,
+                                      shape: CircleBorder(),
+                                      padding: EdgeInsets.all(12),
+                                      primary: Colors.white, // <-- Button color
+                                      onPrimary:
+                                          Colors.grey, // <-- Splash color
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ))
+                      ],
+                    )),
+                    Align(
+                        alignment: Alignment.bottomCenter,
+                        child: AnnotatedRegion<SystemUiOverlayStyle>(
+                          value: SystemUiOverlayStyle.light.copyWith(
+                              //statusBarColor: Colors.purple,
+                              systemNavigationBarColor: Colors.red,
+                              systemNavigationBarDividerColor: Colors.yellow),
+                          child: ClipPath(
+                            clipper: BottomMenuClipper(),
+                            child: Container(
+                              height: 100,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(40),
+                                      topRight: Radius.circular(40))),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                      flex: 3,
+                                      child:
+                                          Container(color: Colors.transparent)),
+                                  Expanded(
+                                      flex: 2,
+                                      child: ClipOval(
+                                        child: AspectRatio(
+                                          aspectRatio: 1,
+                                          child: Container(
+                                            //color: Colors.yellow,
+                                            child: TextButton(
+                                                onPressed: () {},
+                                                child: Container(
+                                                  height: 50,
+                                                  //color: Colors.amber,
+                                                  child: FittedBox(
+                                                      child: Icon(Icons
+                                                          .arrow_upward_sharp)),
+                                                )),
+                                            decoration: BoxDecoration(
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Color(0xFFDADADA),
+                                                  blurRadius: 20.0,
+                                                  offset: Offset(4, 4),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      )),
+                                  Expanded(
+                                      flex: 3,
+                                      child:
+                                          Container(color: Colors.transparent))
+                                ],
+                              ),
+                            ),
+                          ),
+                        ))
+                  ],
+                )),
               ],
-            )),
-          ],
+            ),
+          ),
         ));
   }
 }
