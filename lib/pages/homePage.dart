@@ -242,55 +242,103 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(flex: 2, child: Container()),
             Expanded(
-                child: ClipPath(
-              clipper: BottomMenuClipper(),
-              child: Container(
-                height: 100,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(40),
-                        topRight: Radius.circular(40))),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Stack(
+              children: [
+                Container(
+                    child: Column(
                   children: [
                     Expanded(
-                        flex: 3, child: Container(color: Colors.transparent)),
-                    Expanded(
-                        flex: 2,
-                        child: ClipOval(
-                          child: AspectRatio(
-                            aspectRatio: 1,
-                            child: Container(
-                              //color: Colors.yellow,
-                              child: TextButton(
-                                  onPressed: () {},
-                                  child: Container(
-                                    height: 50,
-                                    //color: Colors.amber,
-                                    child: FittedBox(
-                                        child: Icon(Icons.arrow_upward_sharp)),
-                                  )),
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0xFFDADADA),
-                                    blurRadius: 20.0,
-                                    offset: Offset(4, 4),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        )),
-                    Expanded(
-                        flex: 3, child: Container(color: Colors.transparent))
+                        child: ListView(
+                      children: [
+                        Container(
+                          color: Colors.red,
+                          height: 100,
+                        ),
+                        Container(
+                          color: Colors.green,
+                          height: 100,
+                        ),
+                        Container(
+                          color: Colors.yellow,
+                          height: 100,
+                        ),
+                        Container(
+                          color: Colors.blue,
+                          height: 100,
+                        ),
+                        Container(
+                          color: Colors.purple,
+                          height: 100,
+                        ),
+                        Container(
+                          color: Colors.orange,
+                          height: 100,
+                        ),
+                        Container(
+                          color: Colors.pink,
+                          height: 100,
+                        ),
+                      ],
+                    ))
                   ],
-                ),
-              ),
-            ))
+                )),
+                Align(
+                    alignment: Alignment.bottomCenter,
+                    child: SafeArea(
+                      child: ClipPath(
+                        clipper: BottomMenuClipper(),
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(40),
+                                  topRight: Radius.circular(40))),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                  flex: 3,
+                                  child: Container(color: Colors.transparent)),
+                              Expanded(
+                                  flex: 2,
+                                  child: ClipOval(
+                                    child: AspectRatio(
+                                      aspectRatio: 1,
+                                      child: Container(
+                                        //color: Colors.yellow,
+                                        child: TextButton(
+                                            onPressed: () {},
+                                            child: Container(
+                                              height: 50,
+                                              //color: Colors.amber,
+                                              child: FittedBox(
+                                                  child: Icon(Icons
+                                                      .arrow_upward_sharp)),
+                                            )),
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Color(0xFFDADADA),
+                                              blurRadius: 20.0,
+                                              offset: Offset(4, 4),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  )),
+                              Expanded(
+                                  flex: 3,
+                                  child: Container(color: Colors.transparent))
+                            ],
+                          ),
+                        ),
+                      ),
+                    ))
+              ],
+            )),
           ],
         ));
   }
@@ -434,6 +482,13 @@ class BottomMenuClipper extends CustomClipper<Path> {
     double degToRad(num deg) => deg * (Math.pi / 180.0);
 
     path.lineTo(size.width / 2 - offsetX, 0);
+
+    var firstControlPoint = Offset(size.width / 2 - offsetX * 0.75, 0);
+    var firstEndPoint = Offset(size.width / 2 - offsetX / 2, offsetY);
+
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstEndPoint.dx, firstEndPoint.dy);
+
     path.lineTo(size.width / 2 - offsetX / 2, offsetY);
     path.addArc(
         Rect.fromCircle(
@@ -442,6 +497,13 @@ class BottomMenuClipper extends CustomClipper<Path> {
         degToRad(-141),
         degToRad(102));
     path.lineTo(size.width / 2 + offsetX / 2, offsetY);
+
+    var secondControlPoint = Offset(size.width / 2 + offsetX * 0.75, 0);
+    var secondEndPoint = Offset(size.width / 2 + offsetX, 0);
+
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondEndPoint.dx, secondEndPoint.dy);
+
     path.lineTo(size.width / 2 + offsetX, 0);
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
