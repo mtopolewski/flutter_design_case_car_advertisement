@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:math' as Math;
+import 'dart:io' as io;
 
 import 'package:flutter_design_case_car_advertisement/widgets/selectableButton.dart';
 
@@ -253,152 +254,390 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                    child: Stack(
+                    child: Column(
                   children: [
-                    Container(
-                        child: Column(
-                      children: [
-                        Expanded(
-                            child: ListView(
-                          physics: ClampingScrollPhysics(),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(4, 20, 4, 20),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
-                              padding: EdgeInsets.fromLTRB(30, 10, 20, 10),
-                              height: 100,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFCCA1E56),
-                                border: Border.all(color: Color(0xFFD62D64)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30)),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x33000000),
-                                    blurRadius: 20.0,
-                                    offset: Offset(4, 4),
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 6,
-                                    height: 6,
-                                    decoration: new BoxDecoration(
-                                      color: Color(0xFFFF92B7),
-                                      shape: BoxShape.circle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          25, 0, 0, 0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.stretch,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.fromLTRB(
-                                                0, 0, 0, 4),
-                                            child: Text(
-                                              "8:30 AM",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
-                                            ),
-                                          ),
-                                          Text(
-                                            "CAR WRAP SHOP",
-                                            style: TextStyle(
-                                                color: Color(0xFFFF92B7),
-                                                fontSize: 16),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () {},
-                                    child: Icon(Icons.arrow_forward_outlined,
-                                        color: Colors.black),
-                                    style: ElevatedButton.styleFrom(
-                                      shadowColor: Colors.transparent,
-                                      shape: CircleBorder(),
-                                      padding: EdgeInsets.all(12),
-                                      primary: Colors.white, // <-- Button color
-                                      onPrimary:
-                                          Colors.grey, // <-- Splash color
-                                    ),
-                                  )
-                                ],
+                              height: 26,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Container(
+                                  height: 26,
+                                  width: 26,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Color(0xFFD42E64), width: 2),
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(13))),
+                                  child: Icon(Icons.arrow_left,
+                                      color: Colors.white, size: 20),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  shadowColor: Colors.transparent,
+                                  shape: CircleBorder(),
+                                  padding: EdgeInsets.all(0),
+                                  primary:
+                                      Color(0xFFCC2058), // <-- Button color
+                                  onPrimary: Colors.grey, // <-- Splash color
+                                ),
                               ),
                             ),
-                          ],
-                        ))
-                      ],
-                    )),
-                    Align(
-                        alignment: Alignment.bottomCenter,
-                        child: AnnotatedRegion<SystemUiOverlayStyle>(
-                          value: SystemUiOverlayStyle.light.copyWith(
-                              //statusBarColor: Colors.purple,
-                              systemNavigationBarColor: Colors.red,
-                              systemNavigationBarDividerColor: Colors.yellow),
-                          child: ClipPath(
-                            clipper: BottomMenuClipper(),
-                            child: Container(
-                              height: 100,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(40),
-                                      topRight: Radius.circular(40))),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                            Text("SELECT TIME",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            Container(
+                              height: 26,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Container(
+                                  height: 26,
+                                  width: 26,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Color(0xFFD42E64), width: 2),
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(13))),
+                                  child: Icon(Icons.arrow_right,
+                                      color: Colors.white, size: 20),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  shadowColor: Colors.transparent,
+                                  shape: CircleBorder(),
+                                  padding: EdgeInsets.all(0),
+                                  primary: Color(0xFFCC2058),
+                                  onPrimary: Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ]),
+                    ),
+                    Expanded(
+                      child: Stack(
+                        children: [
+                          Container(
+                              child: Column(
+                            children: [
+                              Expanded(
+                                  child: ListView(
+                                physics: io.Platform.isAndroid
+                                    ? ClampingScrollPhysics()
+                                    : null,
                                 children: [
-                                  Expanded(
-                                      flex: 3,
-                                      child:
-                                          Container(color: Colors.transparent)),
-                                  Expanded(
-                                      flex: 2,
-                                      child: ClipOval(
-                                        child: AspectRatio(
-                                          aspectRatio: 1,
-                                          child: Container(
-                                            //color: Colors.yellow,
-                                            child: TextButton(
-                                                onPressed: () {},
-                                                child: Container(
-                                                  height: 50,
-                                                  //color: Colors.amber,
-                                                  child: FittedBox(
-                                                      child: Icon(Icons
-                                                          .arrow_upward_sharp)),
-                                                )),
-                                            decoration: BoxDecoration(
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0xFFDADADA),
-                                                  blurRadius: 20.0,
-                                                  offset: Offset(4, 4),
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
+                                    padding:
+                                        EdgeInsets.fromLTRB(30, 10, 20, 10),
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFCCA1E56),
+                                      border:
+                                          Border.all(color: Color(0xFFD62D64)),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(30)),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color(0x33000000),
+                                          blurRadius: 20.0,
+                                          offset: Offset(4, 4),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 6,
+                                          height: 6,
+                                          decoration: new BoxDecoration(
+                                            color: Color(0xFFFF92B7),
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                25, 0, 0, 0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          0, 0, 0, 4),
+                                                  child: Text(
+                                                    "8:30 AM",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 16),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "CAR WRAP SHOP",
+                                                  style: TextStyle(
+                                                      color: Color(0xFFFF92B7),
+                                                      fontSize: 16),
                                                 ),
                                               ],
                                             ),
                                           ),
                                         ),
-                                      )),
-                                  Expanded(
-                                      flex: 3,
-                                      child:
-                                          Container(color: Colors.transparent))
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          child: Icon(
+                                              Icons.arrow_forward_outlined,
+                                              color: Colors.black),
+                                          style: ElevatedButton.styleFrom(
+                                            shadowColor: Colors.transparent,
+                                            shape: CircleBorder(),
+                                            padding: EdgeInsets.all(12),
+                                            primary: Colors
+                                                .white, // <-- Button color
+                                            onPrimary:
+                                                Colors.grey, // <-- Splash color
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
+                                    padding:
+                                        EdgeInsets.fromLTRB(30, 10, 20, 10),
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFCCA1E56),
+                                      border:
+                                          Border.all(color: Color(0xFFD62D64)),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(30)),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color(0x33000000),
+                                          blurRadius: 20.0,
+                                          offset: Offset(4, 4),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 6,
+                                          height: 6,
+                                          decoration: new BoxDecoration(
+                                            color: Color(0xFFFF92B7),
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                25, 0, 0, 0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          0, 0, 0, 4),
+                                                  child: Text(
+                                                    "8:30 AM",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 16),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "CAR WRAP SHOP",
+                                                  style: TextStyle(
+                                                      color: Color(0xFFFF92B7),
+                                                      fontSize: 16),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          child: Icon(
+                                              Icons.arrow_forward_outlined,
+                                              color: Colors.black),
+                                          style: ElevatedButton.styleFrom(
+                                            shadowColor: Colors.transparent,
+                                            shape: CircleBorder(),
+                                            padding: EdgeInsets.all(12),
+                                            primary: Colors
+                                                .white, // <-- Button color
+                                            onPrimary:
+                                                Colors.grey, // <-- Splash color
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
+                                    padding:
+                                        EdgeInsets.fromLTRB(30, 10, 20, 10),
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFCCA1E56),
+                                      border:
+                                          Border.all(color: Color(0xFFD62D64)),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(30)),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color(0x33000000),
+                                          blurRadius: 20.0,
+                                          offset: Offset(4, 4),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 6,
+                                          height: 6,
+                                          decoration: new BoxDecoration(
+                                            color: Color(0xFFFF92B7),
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                25, 0, 0, 0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          0, 0, 0, 4),
+                                                  child: Text(
+                                                    "8:30 AM",
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 16),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "CAR WRAP SHOP",
+                                                  style: TextStyle(
+                                                      color: Color(0xFFFF92B7),
+                                                      fontSize: 16),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          child: Icon(
+                                              Icons.arrow_forward_outlined,
+                                              color: Colors.black),
+                                          style: ElevatedButton.styleFrom(
+                                            shadowColor: Colors.transparent,
+                                            shape: CircleBorder(),
+                                            padding: EdgeInsets.all(12),
+                                            primary: Colors
+                                                .white, // <-- Button color
+                                            onPrimary:
+                                                Colors.grey, // <-- Splash color
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                 ],
-                              ),
-                            ),
-                          ),
-                        ))
+                              ))
+                            ],
+                          )),
+                          Align(
+                              alignment: Alignment.bottomCenter,
+                              child: AnnotatedRegion<SystemUiOverlayStyle>(
+                                value: SystemUiOverlayStyle.light.copyWith(
+                                    //statusBarColor: Colors.purple,
+                                    systemNavigationBarColor: Colors.red,
+                                    systemNavigationBarDividerColor:
+                                        Colors.yellow),
+                                child: ClipPath(
+                                  clipper: BottomMenuClipper(),
+                                  child: Container(
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(40),
+                                            topRight: Radius.circular(40))),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                            flex: 3,
+                                            child: Container(
+                                                color: Colors.transparent)),
+                                        Expanded(
+                                            flex: 2,
+                                            child: ClipOval(
+                                              child: AspectRatio(
+                                                aspectRatio: 1,
+                                                child: Container(
+                                                  //color: Colors.yellow,
+                                                  child: TextButton(
+                                                      onPressed: () {},
+                                                      child: Container(
+                                                        height: 50,
+                                                        //color: Colors.amber,
+                                                        child: FittedBox(
+                                                            child: Icon(Icons
+                                                                .arrow_upward_sharp)),
+                                                      )),
+                                                  decoration: BoxDecoration(
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color:
+                                                            Color(0xFFDADADA),
+                                                        blurRadius: 20.0,
+                                                        offset: Offset(4, 4),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            )),
+                                        Expanded(
+                                            flex: 3,
+                                            child: Container(
+                                                color: Colors.transparent))
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
                   ],
                 )),
               ],
