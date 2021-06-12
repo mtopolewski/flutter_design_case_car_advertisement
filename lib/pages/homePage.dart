@@ -260,6 +260,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Expanded(
                             child: ListView(
+                          physics: ClampingScrollPhysics(),
                           children: [
                             Container(
                               margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
@@ -298,11 +299,15 @@ class HomePage extends StatelessWidget {
                                             CrossAxisAlignment.stretch,
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          Text(
-                                            "8:30 AM",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 16),
+                                          Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                0, 0, 0, 4),
+                                            child: Text(
+                                              "8:30 AM",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
                                           ),
                                           Text(
                                             "CAR WRAP SHOP",
