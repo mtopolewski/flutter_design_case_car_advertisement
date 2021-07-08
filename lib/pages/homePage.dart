@@ -327,9 +327,7 @@ class HomePage extends StatelessWidget {
                             children: [
                               Expanded(
                                   child: ListView(
-                                physics: io.Platform.isAndroid
-                                    ? ClampingScrollPhysics()
-                                    : null,
+                                physics: BouncingScrollPhysics(),
                                 children: [
                                   Container(
                                     margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
@@ -579,11 +577,11 @@ class HomePage extends StatelessWidget {
                                     //statusBarColor: Colors.purple,
                                     systemNavigationBarColor: Colors.red,
                                     systemNavigationBarDividerColor:
-                                        Colors.yellow),
+                                        Colors.black),
                                 child: ClipPath(
                                   clipper: BottomMenuClipper(),
                                   child: Container(
-                                    height: 100,
+                                    height: 120,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.only(
@@ -592,37 +590,39 @@ class HomePage extends StatelessWidget {
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Expanded(
                                             flex: 3,
                                             child: Container(
                                                 color: Colors.transparent)),
-                                        Expanded(
+                                        Flexible(
                                             flex: 2,
                                             child: ClipOval(
-                                              child: AspectRatio(
-                                                aspectRatio: 1,
-                                                child: Container(
-                                                  //color: Colors.yellow,
-                                                  child: TextButton(
-                                                      onPressed: () {},
-                                                      child: Container(
-                                                        height: 50,
-                                                        //color: Colors.amber,
-                                                        child: FittedBox(
-                                                            child: Icon(Icons
-                                                                .arrow_upward_sharp)),
-                                                      )),
-                                                  decoration: BoxDecoration(
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color:
-                                                            Color(0xFFDADADA),
-                                                        blurRadius: 20.0,
-                                                        offset: Offset(4, 4),
-                                                      ),
-                                                    ],
-                                                  ),
+                                              child: Container(
+                                                height: 100,
+                                                width: 100,
+                                                //color: Colors.yellow,
+                                                child: TextButton(
+                                                    onPressed: () {},
+                                                    child: Container(
+                                                      height: 50,
+                                                      //color: Colors.amber,
+                                                      child: FittedBox(
+                                                          child: Icon(Icons
+                                                              .arrow_upward_sharp)),
+                                                    )),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.yellow,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Colors
+                                                          .transparent, //Color(0xFFDADADA),
+                                                      blurRadius: 6.0,
+                                                      offset: Offset(0, 0),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             )),
@@ -796,9 +796,9 @@ class BottomMenuClipper extends CustomClipper<Path> {
     path.addArc(
         Rect.fromCircle(
             center: Offset(size.width / 2, buttonWidth / 2),
-            radius: buttonWidth / 2),
-        degToRad(-141),
-        degToRad(102));
+            radius: buttonWidth / 2 - 0.5),
+        degToRad(-140),
+        degToRad(100));
     path.lineTo(size.width / 2 + offsetX / 2, offsetY);
 
     var secondControlPoint = Offset(size.width / 2 + offsetX * 0.75, 0);
