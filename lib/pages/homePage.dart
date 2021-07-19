@@ -578,8 +578,8 @@ class HomePage extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(40),
-                                            topRight: Radius.circular(40))),
+                                            topLeft: Radius.circular(30),
+                                            topRight: Radius.circular(30))),
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -588,8 +588,59 @@ class HomePage extends StatelessWidget {
                                       children: [
                                         Expanded(
                                             flex: 3,
-                                            child: Container(
-                                                color: Colors.transparent)),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                Expanded(
+                                                    flex: 1,
+                                                    child: TextButton(
+                                                        child: Text("UPCOMING",
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black)),
+                                                        onPressed: () => {},
+                                                        style: TextButton.styleFrom(
+                                                            backgroundColor:
+                                                                Colors.white,
+                                                            shape: const RoundedRectangleBorder(
+                                                                borderRadius: BorderRadius
+                                                                    .all(Radius
+                                                                        .circular(
+                                                                            30)))))),
+                                                Expanded(
+                                                    flex: 1,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .stretch,
+                                                      children: [
+                                                        Expanded(
+                                                          child: TextButton(
+                                                              child: Icon(
+                                                                  Icons
+                                                                      .local_taxi,
+                                                                  color: Color(
+                                                                      0xFFD1D7DE)),
+                                                              onPressed: () =>
+                                                                  {}),
+                                                        ),
+                                                        Expanded(
+                                                          child: TextButton(
+                                                              child: Icon(
+                                                                  Icons
+                                                                      .rice_bowl,
+                                                                  color: Color(
+                                                                      0xFFD1D7DE)),
+                                                              onPressed: () =>
+                                                                  {}),
+                                                        ),
+                                                      ],
+                                                    )),
+                                              ],
+                                            )),
                                         Flexible(
                                             flex: 2,
                                             child: Container(
@@ -611,11 +662,14 @@ class HomePage extends StatelessWidget {
                                                   child: TextButton(
                                                       onPressed: () {},
                                                       child: Container(
-                                                        height: 50,
+                                                        height: 40,
                                                         //color: Colors.amber,
                                                         child: FittedBox(
-                                                            child: Icon(Icons
-                                                                .arrow_upward_sharp)),
+                                                            child: Icon(
+                                                                Icons
+                                                                    .arrow_upward_sharp,
+                                                                color: Color(
+                                                                    0xFFB6093C))),
                                                       )),
                                                   decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
@@ -634,8 +688,61 @@ class HomePage extends StatelessWidget {
                                             )),
                                         Expanded(
                                             flex: 3,
-                                            child: Container(
-                                                color: Colors.transparent))
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                Expanded(
+                                                    flex: 1,
+                                                    child: TextButton(
+                                                        child: Text(
+                                                            "MY HISTORY",
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black)),
+                                                        onPressed: () => {},
+                                                        style: TextButton.styleFrom(
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            shape: const RoundedRectangleBorder(
+                                                                borderRadius: BorderRadius
+                                                                    .all(Radius
+                                                                        .circular(
+                                                                            30)))))),
+                                                Expanded(
+                                                    flex: 1,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .stretch,
+                                                      children: [
+                                                        Expanded(
+                                                          child: TextButton(
+                                                              child: Icon(
+                                                                  Icons
+                                                                      .beenhere,
+                                                                  color: Color(
+                                                                      0xFFD1D7DE)),
+                                                              onPressed: () =>
+                                                                  {}),
+                                                        ),
+                                                        Expanded(
+                                                          child: TextButton(
+                                                              child: Icon(
+                                                                  Icons
+                                                                      .settings_rounded,
+                                                                  color: Color(
+                                                                      0xFFD1D7DE)),
+                                                              onPressed: () =>
+                                                                  {}),
+                                                        ),
+                                                      ],
+                                                    )),
+                                              ],
+                                            )),
                                       ],
                                     ),
                                   ),
