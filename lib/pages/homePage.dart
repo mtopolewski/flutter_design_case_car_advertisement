@@ -559,6 +559,7 @@ class HomePage extends StatelessWidget {
                                       ],
                                     ),
                                   ),
+                                  Container(height: 120)
                                 ],
                               ))
                             ],
