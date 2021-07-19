@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                   shadowColor: Colors.transparent),
               onPressed: () {},
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(22, 0, 12, 0),
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
                 child: Icon(
                   Icons.arrow_back_ios,
                   color: Colors.black,
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
                       shadowColor: Colors.transparent),
                   child: Container(
                     height: 30,
-                    width: 70,
+                    width: 60,
                     child: FittedBox(
                       child: Icon(Icons.contact_support_sharp,
                           color: Color(0x0FFE5E8EE)),
@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 300, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 270, 0, 0),
                   child: Column(
                     children: [
                       Expanded(
@@ -656,7 +656,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
                       child: AspectRatio(
-                        aspectRatio: 0.97,
+                        aspectRatio: 1.07,
                         child: ClipPath(
                           clipper: FirstClipper(),
                           child: Container(
@@ -671,7 +671,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                       child: AspectRatio(
-                        aspectRatio: 1.13,
+                        aspectRatio: 1.23,
                         child: ClipPath(
                           clipper: SecondClipper(),
                           child: Container(
@@ -687,7 +687,7 @@ class HomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: AspectRatio(
-                        aspectRatio: 1.3,
+                        aspectRatio: 1.4,
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.transparent,
@@ -756,12 +756,12 @@ class HomePage extends StatelessWidget {
                                           ]),
                                     ),
                                   ),
-                                  Expanded(
+                                  Flexible(
                                     flex: 2,
                                     child: Container(
                                       //color: Colors.lightBlue,
                                       padding: const EdgeInsets.fromLTRB(
-                                          10, 0, 10, 60),
+                                          10, 0, 10, 0), //TODO
                                       child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
