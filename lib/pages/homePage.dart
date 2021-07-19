@@ -76,7 +76,8 @@ class HomePage extends StatelessWidget {
             child: Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 270, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 270, 0,
+                      0), //TODO: replace padding with some more smart approach
                   child: Column(
                     children: [
                       Expanded(
@@ -758,10 +759,9 @@ class HomePage extends StatelessWidget {
                                   ),
                                   Flexible(
                                     flex: 2,
-                                    child: Container(
-                                      //color: Colors.lightBlue,
+                                    child: Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          10, 0, 10, 0), //TODO
+                                          10, 0, 10, 0),
                                       child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
