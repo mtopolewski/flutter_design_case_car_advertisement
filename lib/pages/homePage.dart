@@ -21,17 +21,11 @@ class HomePage extends StatelessWidget {
                 fontSize: 15,
                 fontWeight: FontWeight.bold),
           ),
-          leading: Padding(
-            padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                  primary: Colors.white,
-                  backgroundColor: Colors.transparent,
-                  onSurface: Colors.red,
-                  shadowColor: Colors.transparent),
-              onPressed: () {},
+          leading: TextButton(
+            onPressed: () {},
+            child: Center(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
                 child: Icon(
                   Icons.arrow_back_ios,
                   color: Colors.black,
@@ -40,24 +34,16 @@ class HomePage extends StatelessWidget {
             ),
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Colors.transparent,
-                      onSurface: Colors.red,
-                      shadowColor: Colors.transparent),
-                  child: Container(
-                    height: 30,
-                    width: 60,
-                    child: FittedBox(
-                      child: Icon(Icons.contact_support_sharp,
-                          color: Color(0x0FFE5E8EE)),
-                    ),
-                  )),
-            )
+            TextButton(
+                onPressed: () {},
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  child: FittedBox(
+                    child: Icon(Icons.contact_support_sharp,
+                        color: Color(0x0FFE5E8EE)),
+                  ),
+                ))
           ],
           backgroundColor: Colors.white,
           shadowColor: Colors.transparent,
