@@ -714,20 +714,23 @@ class HomePage extends StatelessWidget {
                                           TextStyle(color: Color(0xFFB1BABf))),
                                   Expanded(
                                     flex: 1,
-                                    child: Container(
-                                      //color: Colors.yellow,
+                                    child: Center(
                                       child: Row(
+                                          mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Icon(
-                                              Icons.arrow_left,
-                                              color: Color(0xFFB1BABF),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: Icon(
+                                                Icons.arrow_left,
+                                                color: Color(0xFFB1BABF),
+                                              ),
                                             ),
                                             Padding(
                                               padding:
                                                   const EdgeInsets.fromLTRB(
-                                                      30, 0, 30, 0),
+                                                      10, 0, 10, 0),
                                               child: Text("JUNE",
                                                   style: TextStyle(
                                                       fontSize: 12,
@@ -736,9 +739,12 @@ class HomePage extends StatelessWidget {
                                                       color:
                                                           Color(0xFFB1BABF))),
                                             ),
-                                            Icon(
-                                              Icons.arrow_right,
-                                              color: Color(0xFFB1BABF),
+                                            TextButton(
+                                              onPressed: () {},
+                                              child: Icon(
+                                                Icons.arrow_right,
+                                                color: Color(0xFFB1BABF),
+                                              ),
                                             )
                                           ]),
                                     ),

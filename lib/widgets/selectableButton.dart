@@ -39,17 +39,21 @@ class SelectableButton extends StatelessWidget {
                 ),
               ],
             ),
-            child: Center(
+            child: TextButton(
+                onPressed: !isUnavailable ? () {} : null,
+                style: TextButton.styleFrom(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)))),
                 child: Text(
-              title,
-              style: TextStyle(
-                  fontSize: 22,
-                  color: isSelected
-                      ? Colors.white
-                      : isUnavailable
-                          ? Color(0x77A0A0A0)
-                          : Colors.black),
-            )),
+                  title,
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: isSelected
+                          ? Colors.white
+                          : isUnavailable
+                              ? Color(0x77A0A0A0)
+                              : Colors.black),
+                )),
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
