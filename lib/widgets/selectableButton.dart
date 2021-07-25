@@ -6,12 +6,14 @@ class SelectableButton extends StatelessWidget {
       required this.title,
       required this.subtitle,
       required this.isSelected,
-      required this.isUnavailable});
+      required this.isUnavailable,
+      required this.onPressed});
   final IconData icon;
   final String title;
   final String subtitle;
   final bool isSelected;
   final bool isUnavailable;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -40,7 +42,11 @@ class SelectableButton extends StatelessWidget {
               ],
             ),
             child: TextButton(
-                onPressed: !isUnavailable ? () {} : null,
+                onPressed: !isUnavailable
+                    ? () {
+                        onPressed();
+                      }
+                    : null,
                 style: TextButton.styleFrom(
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)))),

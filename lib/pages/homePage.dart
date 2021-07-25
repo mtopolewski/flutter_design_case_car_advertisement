@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_design_case_car_advertisement/widgets/daySlider.dart';
 import 'dart:math' as Math;
 import 'dart:io' as io;
 
@@ -752,59 +753,10 @@ class HomePage extends StatelessWidget {
                                   Flexible(
                                     flex: 2,
                                     child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          10, 0, 10, 0),
-                                      child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Flexible(
-                                              child: SelectableButton(
-                                                icon: Icons.ac_unit,
-                                                title: "15",
-                                                subtitle: "MON",
-                                                isSelected: false,
-                                                isUnavailable: false,
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: SelectableButton(
-                                                icon: Icons.ac_unit,
-                                                title: "16",
-                                                subtitle: "TUE",
-                                                isSelected: false,
-                                                isUnavailable: true,
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: SelectableButton(
-                                                icon: Icons.ac_unit,
-                                                title: "19",
-                                                subtitle: "FRI",
-                                                isSelected: true,
-                                                isUnavailable: false,
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: SelectableButton(
-                                                icon: Icons.ac_unit,
-                                                title: "22",
-                                                subtitle: "MON",
-                                                isSelected: false,
-                                                isUnavailable: false,
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: SelectableButton(
-                                                icon: Icons.ac_unit,
-                                                title: "25",
-                                                subtitle: "THU",
-                                                isSelected: false,
-                                                isUnavailable: true,
-                                              ),
-                                            ),
-                                          ]),
-                                    ),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            0, 0, 0, 0),
+                                        child: Container(
+                                            height: 110, child: DaySlider())),
                                   )
                                 ],
                               ),
