@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
                 ))
           ],
           backgroundColor: Colors.white,
-          shadowColor: Colors.transparent,
+          elevation: 0.0,
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 color: Colors.white, //B41A47 //bd1c4b
@@ -119,8 +119,7 @@ class HomePage extends StatelessWidget {
                                                     ),
                                                     style: ElevatedButton
                                                         .styleFrom(
-                                                      shadowColor:
-                                                          Colors.transparent,
+                                                      elevation: 0,
                                                       shape: CircleBorder(),
                                                       padding:
                                                           EdgeInsets.all(0),
@@ -162,8 +161,7 @@ class HomePage extends StatelessWidget {
                                                     ),
                                                     style: ElevatedButton
                                                         .styleFrom(
-                                                      shadowColor:
-                                                          Colors.transparent,
+                                                      elevation: 0,
                                                       shape: CircleBorder(),
                                                       padding:
                                                           EdgeInsets.all(0),
