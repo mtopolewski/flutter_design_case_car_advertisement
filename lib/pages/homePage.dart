@@ -476,21 +476,26 @@ class HomePage extends StatelessWidget {
                                                 children: [
                                                   Expanded(
                                                       flex: 1,
-                                                      child: TextButton(
-                                                          child: Text(
-                                                              "UPCOMING",
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .black)),
-                                                          onPressed: () => {},
-                                                          style: TextButton.styleFrom(
-                                                              backgroundColor:
-                                                                  Colors.white,
-                                                              shape: const RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius.all(
-                                                                          Radius.circular(
-                                                                              30)))))),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 10),
+                                                        child: TextButton(
+                                                            child: Text(
+                                                                "UPCOMING",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .black)),
+                                                            onPressed: () => {},
+                                                            style: TextButton.styleFrom(
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .white,
+                                                                shape: const RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.all(
+                                                                            Radius.circular(30))))),
+                                                      )),
                                                   Expanded(
                                                       flex: 1,
                                                       child: Row(
@@ -577,22 +582,26 @@ class HomePage extends StatelessWidget {
                                                 children: [
                                                   Expanded(
                                                       flex: 1,
-                                                      child: TextButton(
-                                                          child: Text(
-                                                              "MY HISTORY",
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .black)),
-                                                          onPressed: () => {},
-                                                          style: TextButton.styleFrom(
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              shape: const RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius.all(
-                                                                          Radius.circular(
-                                                                              30)))))),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 10),
+                                                        child: TextButton(
+                                                            child: Text(
+                                                                "MY HISTORY",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .black)),
+                                                            onPressed: () => {},
+                                                            style: TextButton.styleFrom(
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                shape: const RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.all(
+                                                                            Radius.circular(30))))),
+                                                      )),
                                                   Expanded(
                                                       flex: 1,
                                                       child: Row(
@@ -955,24 +964,23 @@ class BottomMenuClipper extends CustomClipper<Path> {
     var cornersDiameter = 60.0;
     var cornersRadius = cornersDiameter / 2;
     var buttonRadius = 50.0; //size.width / 4; //60.0;
-    var a = 90;
-    var b = 52.0;
-    var c = 30.0;
-    var alpha = 60;
-    var aa = Math.sin(degToRad(90 - alpha)) * buttonRadius;
-    var bb = Math.cos(degToRad(90 - alpha)) * buttonRadius;
-    b = bb;
-    c = buttonRadius - aa;
+    var A = 90.0;
+    var yOffset = 10.0;
+    var alpha = 70;
+    var a = Math.sin(degToRad(90 - alpha)) * (buttonRadius);
+    var b = Math.cos(degToRad(90 - alpha)) * (buttonRadius);
+    var d = buttonRadius - a;
 
     path.addArc(
         Rect.fromCircle(
-            center: Offset(cornersRadius, cornersRadius),
+            center: Offset(cornersRadius, cornersRadius + yOffset),
             radius: cornersRadius),
         degToRad(-180),
         degToRad(90));
 
-    path.lineTo(size.width / 2 - a, 0);
-    path.quadraticBezierTo(size.width / 2 - b - 10, 0, size.width / 2 - b, c);
+    path.lineTo(size.width / 2 - A, 0 + yOffset);
+    path.quadraticBezierTo(
+        size.width / 2 - b - 10, 0 + yOffset, size.width / 2 - b, d);
 
     path.arcTo(
         Rect.fromCircle(
@@ -981,14 +989,15 @@ class BottomMenuClipper extends CustomClipper<Path> {
         degToRad(alpha * 2),
         false);
 
-    path.quadraticBezierTo(size.width / 2 + b + 10, 0, size.width / 2 + a, 0);
+    path.quadraticBezierTo(
+        size.width / 2 + b + 10, 0 + yOffset, size.width / 2 + A, 0 + yOffset);
 
-    path.lineTo(size.width / 2 + a, 0);
+    path.lineTo(size.width / 2 + A, 0 + yOffset);
 
-    path.lineTo(size.width - cornersDiameter / 2, 0);
+    path.lineTo(size.width - cornersDiameter / 2, 0 + yOffset);
     path.arcTo(
         Rect.fromCircle(
-            center: Offset(size.width - cornersRadius, cornersRadius),
+            center: Offset(size.width - cornersRadius, cornersRadius + yOffset),
             radius: cornersRadius),
         degToRad(-90),
         degToRad(90),
