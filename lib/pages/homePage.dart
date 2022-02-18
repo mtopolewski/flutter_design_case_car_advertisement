@@ -903,34 +903,43 @@ class FirstClipper extends CustomClipper<Path> {
 class BottomMenuClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
+    return _getPath3(size);
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+
+  double degToRad(num deg) => deg * (Math.pi / 180.0);
+  num radToDeg(double rad) => rad * 180.0 / Math.pi;
+
+  Path _getPath2(Size size) {
     var path = new Path();
     var offsetX = 80.0;
     var offsetY = 20.0;
-    var buttonWidth = size.width * 2 / 8;
-    double degToRad(num deg) => deg * (Math.pi / 180.0);
+    var buttonWidth = size.width / 4;
 
-    path.lineTo(size.width / 2 - offsetX, 0);
+    var cornersDiameter = 60.0;
+    var innerCircleOffsetX = 50; //(size.width - 20) / 3 / 2;
+    path.lineTo(size.width / 2 - buttonWidth / 2 - cornersDiameter / 2, 0);
+    path.quadraticBezierTo(size.width / 2 - buttonWidth / 2, 0,
+        size.width / 2 - buttonWidth / 2 + 10, buttonWidth / 2 - 30);
 
-    var firstControlPoint = Offset(size.width / 2 - offsetX * 0.75, 0);
-    var firstEndPoint = Offset(size.width / 2 - offsetX / 2, offsetY);
-
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
-
-    path.lineTo(size.width / 2 - offsetX / 2, offsetY);
-    path.addArc(
+    path.arcTo(
         Rect.fromCircle(
             center: Offset(size.width / 2, buttonWidth / 2),
-            radius: buttonWidth / 2 - 0.5),
-        degToRad(-140),
-        degToRad(100));
-    path.lineTo(size.width / 2 + offsetX / 2, offsetY);
-
-    var secondControlPoint = Offset(size.width / 2 + offsetX * 0.75, 0);
-    var secondEndPoint = Offset(size.width / 2 + offsetX, 0);
-
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-        secondEndPoint.dx, secondEndPoint.dy);
+            radius: buttonWidth / 2),
+        degToRad(-130),
+        degToRad(80),
+        false);
+    path.arcTo(
+        Rect.fromCircle(
+            center: Offset(
+                size.width / 2 + innerCircleOffsetX + cornersDiameter / 2,
+                cornersDiameter / 2),
+            radius: cornersDiameter / 2),
+        degToRad(-180),
+        degToRad(90),
+        false);
 
     path.lineTo(size.width / 2 + offsetX, 0);
     path.lineTo(size.width, 0);
@@ -941,6 +950,54 @@ class BottomMenuClipper extends CustomClipper<Path> {
     return path;
   }
 
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+  Path _getPath3(Size size) {
+    var path = Path();
+    var cornersDiameter = 60.0;
+    var cornersRadius = cornersDiameter / 2;
+    var buttonRadius = 50.0; //size.width / 4; //60.0;
+    var a = 90;
+    var b = 52.0;
+    var c = 30.0;
+    var alpha = 60;
+    var aa = Math.sin(degToRad(90 - alpha)) * buttonRadius;
+    var bb = Math.cos(degToRad(90 - alpha)) * buttonRadius;
+    b = bb;
+    c = buttonRadius - aa;
+
+    path.addArc(
+        Rect.fromCircle(
+            center: Offset(cornersRadius, cornersRadius),
+            radius: cornersRadius),
+        degToRad(-180),
+        degToRad(90));
+
+    path.lineTo(size.width / 2 - a, 0);
+    path.quadraticBezierTo(size.width / 2 - b - 10, 0, size.width / 2 - b, c);
+
+    path.arcTo(
+        Rect.fromCircle(
+            center: Offset(size.width / 2, buttonRadius), radius: buttonRadius),
+        degToRad(-90 - alpha),
+        degToRad(alpha * 2),
+        false);
+
+    path.quadraticBezierTo(size.width / 2 + b + 10, 0, size.width / 2 + a, 0);
+
+    path.lineTo(size.width / 2 + a, 0);
+
+    path.lineTo(size.width - cornersDiameter / 2, 0);
+    path.arcTo(
+        Rect.fromCircle(
+            center: Offset(size.width - cornersRadius, cornersRadius),
+            radius: cornersRadius),
+        degToRad(-90),
+        degToRad(90),
+        false);
+    path.lineTo(size.width, cornersDiameter / 2);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.lineTo(0, cornersDiameter / 2);
+    path.close();
+    return path;
+  }
 }

@@ -28,5 +28,41 @@
             "type": "dart",
             "flutterMode": "release"
         },
-    ]
+        {
+			"name": "Android",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "emulator-5554"
+		},
+        {
+			"name": "Motorola",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "ZY326SHSSH"
+		},
+		{
+			"name": "iPhone",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "iPhone 13"
+		},
+        {
+			"name": "Web",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "Chrome"
+		},
+        {
+			"name": "Mac",
+			"request": "launch",
+			"type": "dart",
+			"deviceId": "macOS"
+		},
+    ],
+    "compounds": [
+		{
+			"name": "All Devices",
+			"configurations": ["iPhone", "Motorola"],
+		}
+	]
 }
