@@ -62,7 +62,7 @@
     "compounds": [
 		{
 			"name": "All Devices",
-			"configurations": ["iPhone", "Motorola"],
+			"configurations": ["iPhone", "Android"],
 		}
 	]
 }
