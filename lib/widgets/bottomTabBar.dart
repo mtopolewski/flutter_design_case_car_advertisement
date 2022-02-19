@@ -82,8 +82,10 @@ class BottomTabBar extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: TextButton(
-                            child: Text("MY HISTORY",
-                                style: TextStyle(color: Colors.black)),
+                            child: SizedBox(
+                              child: Text("MY HISTORY",
+                                  style: TextStyle(color: Colors.black)),
+                            ),
                             onPressed: () => {},
                             style: TextButton.styleFrom(
                               backgroundColor: Colors.white,
@@ -138,7 +140,7 @@ class BottomTabBar extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0x55555555),
+                    color: Color(0x44555555),
                     blurRadius: 30.0,
                     offset: Offset(0, 0),
                   ),
@@ -148,30 +150,56 @@ class BottomTabBar extends StatelessWidget {
               width: 100,
               alignment: Alignment.center,
               child: ClipOval(
-                child: Container(
-                  height: 86,
-                  width: 86,
-                  color: Colors.white,
-                  alignment: Alignment.center,
-                  child: ClipOval(
-                    child: Container(
-                      height: 78,
-                      width: 78,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: SizedBox(
-                          height: 30,
-                          child: FittedBox(
-                            child: Icon(
-                              Icons.arrow_upward_sharp,
-                              color: Color(0xFFB6093C),
+                child: Material(
+                  clipBehavior: Clip.hardEdge,
+                  child: InkWell(
+                    onTap: () {},
+                    child: Ink(
+                      color: Color(0xFFF8F8F8),
+                      child: Container(
+                        height: 86,
+                        width: 86,
+                        alignment: Alignment.center,
+                        child: ClipOval(
+                          child: Ink(
+                            //color: Colors.amber, //Color(0xFFF9F9F9),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle, color: Colors.white
+                                // gradient: RadialGradient(colors: [
+                                //   Color(0xFFF7F7F7),
+                                //   Color(0xFFF7F7F7)
+                                // ])
+                                // gradient: LinearGradient(
+                                //   begin: Alignment.topRight,
+                                //   end: Alignment.bottomLeft,
+                                //   colors: [
+                                //     Colors.blue,
+                                //     Colors.red,
+                                //   ],
+                                // )
+                                //color: Color(0xFFF7F7F7),
+                                ),
+                            child: Container(
+                              //color: Colors.amber,
+                              height: 78,
+                              width: 78,
+                              alignment: Alignment.center,
+                              child: SizedBox(
+                                height: 30,
+                                child: FittedBox(
+                                  child: Icon(
+                                    Icons.arrow_upward_sharp,
+                                    color: Color(0xFFB6093C),
+                                  ),
+                                ),
+                              ),
+                              // decoration: BoxDecoration(
+                              //   shape: BoxShape.circle,
+                              //   color: Color(0xFFF7F7F7),
+                              // ),
                             ),
                           ),
                         ),
-                      ),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFFF7F7F7),
                       ),
                     ),
                   ),
@@ -179,7 +207,7 @@ class BottomTabBar extends StatelessWidget {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
