@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_design_case_car_advertisement/widgets/bottomTabBar.dart';
 import 'package:flutter_design_case_car_advertisement/widgets/daySlider.dart';
 import 'dart:math' as Math;
 import 'dart:io' as io;
@@ -12,883 +13,671 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            "SCHEDULE WRAP",
-            style: TextStyle(
-                color: Color(0x0FFC11A52),
-                fontSize: 15,
-                fontWeight: FontWeight.bold),
-          ),
-          leading: TextButton(
-            onPressed: () {},
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                ),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "SCHEDULE WRAP",
+          style: TextStyle(
+              color: Color(0x0FFC11A52),
+              fontSize: 15,
+              fontWeight: FontWeight.bold),
+        ),
+        leading: TextButton(
+          onPressed: () {},
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.black,
               ),
             ),
           ),
-          actions: [
-            TextButton(
-                onPressed: () {},
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  child: FittedBox(
-                    child: Icon(Icons.contact_support_sharp,
-                        color: Color(0x0FFE5E8EE)),
-                  ),
-                ))
-          ],
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                color: Colors.white, //B41A47 //bd1c4b
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(48),
-                    topRight: Radius.circular(48))),
-          ),
         ),
-        body: SafeArea(
-          bottom: true,
-          child: Container(
-            color: Color(0x0FFC11A52),
-            child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 270, 0,
-                      0), //TODO: replace padding with some more smart approach
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Stack(
-                          children: [
-                            Container(
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                      child: SingleChildScrollView(
-                                    physics: BouncingScrollPhysics(),
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          0, 30, 0, 120),
-                                      child: Column(
-                                        children: [
-                                          Icon(Icons.arrow_drop_down,
-                                              color: Color(
-                                                  0xFFD33068)), //Icon(Icons.arrow_left),
-                                          Padding(
-                                            padding: EdgeInsets.fromLTRB(
-                                                4, 20, 4, 20),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
-                                                    height: 26,
-                                                    child: ElevatedButton(
-                                                      onPressed: () {},
-                                                      child: Container(
-                                                        height: 26,
-                                                        width: 26,
-                                                        decoration: BoxDecoration(
-                                                            border: Border.all(
-                                                                color: Color(
-                                                                    0xFFD42E64),
-                                                                width: 2),
-                                                            color: Colors
-                                                                .transparent,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .all(Radius
-                                                                        .circular(
-                                                                            13))),
-                                                        child: Icon(
-                                                            Icons.arrow_left,
-                                                            color: Colors.white,
-                                                            size: 20),
-                                                      ),
-                                                      style: ElevatedButton
-                                                          .styleFrom(
-                                                        elevation: 0,
-                                                        shape: CircleBorder(),
-                                                        padding:
-                                                            EdgeInsets.all(0),
-                                                        primary: Color(
-                                                            0xFFCC2058), // <-- Button color
-                                                        onPrimary: Colors
-                                                            .grey, // <-- Splash color
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Text("SELECT TIME",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          color: Colors.white)),
-                                                  Container(
-                                                    height: 26,
-                                                    child: ElevatedButton(
-                                                      onPressed: () {},
-                                                      child: Container(
-                                                        height: 26,
-                                                        width: 26,
-                                                        decoration: BoxDecoration(
-                                                            border: Border.all(
-                                                                color: Color(
-                                                                    0xFFD42E64),
-                                                                width: 2),
-                                                            color: Colors
-                                                                .transparent,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .all(Radius
-                                                                        .circular(
-                                                                            13))),
-                                                        child: Icon(
-                                                            Icons.arrow_right,
-                                                            color: Colors.white,
-                                                            size: 20),
-                                                      ),
-                                                      style: ElevatedButton
-                                                          .styleFrom(
-                                                        elevation: 0,
-                                                        shape: CircleBorder(),
-                                                        padding:
-                                                            EdgeInsets.all(0),
-                                                        primary:
-                                                            Color(0xFFCC2058),
-                                                        onPrimary: Colors.grey,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ]),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.fromLTRB(
-                                                26, 16, 26, 16),
-                                            padding: EdgeInsets.fromLTRB(
-                                                30, 10, 20, 10),
-                                            height: 100,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFCCA1E56),
-                                              border: Border.all(
-                                                  color: Color(0xFFD62D64)),
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(30)),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0x33000000),
-                                                  blurRadius: 20.0,
-                                                  offset: Offset(4, 4),
-                                                ),
-                                              ],
-                                            ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+        actions: [
+          TextButton(
+              onPressed: () {},
+              child: Container(
+                height: 30,
+                width: 30,
+                child: FittedBox(
+                  child: Icon(Icons.contact_support_sharp,
+                      color: Color(0x0FFE5E8EE)),
+                ),
+              ))
+        ],
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              color: Colors.white, //B41A47 //bd1c4b
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(48), topRight: Radius.circular(48))),
+        ),
+      ),
+      body: SafeArea(
+        bottom: true,
+        child: Container(
+          color: Color(0x0FFC11A52),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 270, 0,
+                    0), //TODO: replace padding with some more smart approach
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Stack(
+                        children: [
+                          Container(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                    child: SingleChildScrollView(
+                                  physics: BouncingScrollPhysics(),
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        0, 30, 0, 120),
+                                    child: Column(
+                                      children: [
+                                        Icon(Icons.arrow_drop_down,
+                                            color: Color(
+                                                0xFFD33068)), //Icon(Icons.arrow_left),
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(4, 20, 4, 20),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
-                                                  width: 6,
-                                                  height: 6,
-                                                  decoration: new BoxDecoration(
-                                                    color: Color(0xFFFF92B7),
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(25, 0, 0, 0),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .stretch,
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .fromLTRB(
-                                                                  0, 0, 0, 4),
-                                                          child: Text(
-                                                            "8:30 AM",
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 16),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          "CAR WRAP SHOP",
-                                                          style: TextStyle(
+                                                  height: 26,
+                                                  child: ElevatedButton(
+                                                    onPressed: () {},
+                                                    child: Container(
+                                                      height: 26,
+                                                      width: 26,
+                                                      decoration: BoxDecoration(
+                                                          border: Border.all(
                                                               color: Color(
-                                                                  0xFFFF92B7),
-                                                              fontSize: 16),
-                                                        ),
-                                                      ],
+                                                                  0xFFD42E64),
+                                                              width: 2),
+                                                          color: Colors
+                                                              .transparent,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          13))),
+                                                      child: Icon(
+                                                          Icons.arrow_left,
+                                                          color: Colors.white,
+                                                          size: 20),
+                                                    ),
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      elevation: 0,
+                                                      shape: CircleBorder(),
+                                                      padding:
+                                                          EdgeInsets.all(0),
+                                                      primary: Color(
+                                                          0xFFCC2058), // <-- Button color
+                                                      onPrimary: Colors
+                                                          .grey, // <-- Splash color
                                                     ),
                                                   ),
                                                 ),
-                                                ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Icon(
-                                                      Icons
-                                                          .arrow_forward_outlined,
-                                                      color: Colors.black),
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    shadowColor:
-                                                        Colors.transparent,
-                                                    shape: CircleBorder(),
-                                                    padding: EdgeInsets.all(12),
-                                                    primary: Colors
-                                                        .white, // <-- Button color
-                                                    onPrimary: Colors
-                                                        .grey, // <-- Splash color
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.fromLTRB(
-                                                26, 16, 26, 16),
-                                            padding: EdgeInsets.fromLTRB(
-                                                30, 10, 20, 10),
-                                            height: 100,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFCCA1E56),
-                                              border: Border.all(
-                                                  color: Color(0xFFD62D64)),
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(30)),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0x33000000),
-                                                  blurRadius: 20.0,
-                                                  offset: Offset(4, 4),
-                                                ),
-                                              ],
-                                            ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
+                                                Text("SELECT TIME",
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white)),
                                                 Container(
-                                                  width: 6,
-                                                  height: 6,
-                                                  decoration: new BoxDecoration(
-                                                    color: Color(0xFFFF92B7),
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(25, 0, 0, 0),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .stretch,
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .fromLTRB(
-                                                                  0, 0, 0, 4),
-                                                          child: Text(
-                                                            "8:30 AM",
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 16),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          "CAR WRAP SHOP",
-                                                          style: TextStyle(
+                                                  height: 26,
+                                                  child: ElevatedButton(
+                                                    onPressed: () {},
+                                                    child: Container(
+                                                      height: 26,
+                                                      width: 26,
+                                                      decoration: BoxDecoration(
+                                                          border: Border.all(
                                                               color: Color(
-                                                                  0xFFFF92B7),
-                                                              fontSize: 16),
-                                                        ),
-                                                      ],
+                                                                  0xFFD42E64),
+                                                              width: 2),
+                                                          color: Colors
+                                                              .transparent,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          13))),
+                                                      child: Icon(
+                                                          Icons.arrow_right,
+                                                          color: Colors.white,
+                                                          size: 20),
+                                                    ),
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      elevation: 0,
+                                                      shape: CircleBorder(),
+                                                      padding:
+                                                          EdgeInsets.all(0),
+                                                      primary:
+                                                          Color(0xFFCC2058),
+                                                      onPrimary: Colors.grey,
                                                     ),
                                                   ),
                                                 ),
-                                                ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Icon(
-                                                      Icons
-                                                          .arrow_forward_outlined,
-                                                      color: Colors.black),
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    shadowColor:
-                                                        Colors.transparent,
-                                                    shape: CircleBorder(),
-                                                    padding: EdgeInsets.all(12),
-                                                    primary: Colors
-                                                        .white, // <-- Button color
-                                                    onPrimary: Colors
-                                                        .grey, // <-- Splash color
-                                                  ),
-                                                )
-                                              ],
-                                            ),
+                                              ]),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.fromLTRB(
+                                              26, 16, 26, 16),
+                                          padding: EdgeInsets.fromLTRB(
+                                              30, 10, 20, 10),
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFCCA1E56),
+                                            border: Border.all(
+                                                color: Color(0xFFD62D64)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30)),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Color(0x33000000),
+                                                blurRadius: 20.0,
+                                                offset: Offset(4, 4),
+                                              ),
+                                            ],
                                           ),
-                                          Container(
-                                            margin: EdgeInsets.fromLTRB(
-                                                26, 16, 26, 16),
-                                            padding: EdgeInsets.fromLTRB(
-                                                30, 10, 20, 10),
-                                            height: 100,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFCCA1E56),
-                                              border: Border.all(
-                                                  color: Color(0xFFD62D64)),
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(30)),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0x33000000),
-                                                  blurRadius: 20.0,
-                                                  offset: Offset(4, 4),
-                                                ),
-                                              ],
-                                            ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 6,
-                                                  height: 6,
-                                                  decoration: new BoxDecoration(
-                                                    color: Color(0xFFFF92B7),
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(25, 0, 0, 0),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .stretch,
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .fromLTRB(
-                                                                  0, 0, 0, 4),
-                                                          child: Text(
-                                                            "8:30 AM",
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 16),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          "CAR WRAP SHOP",
-                                                          style: TextStyle(
-                                                              color: Color(
-                                                                  0xFFFF92B7),
-                                                              fontSize: 16),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Icon(
-                                                      Icons
-                                                          .arrow_forward_outlined,
-                                                      color: Colors.black),
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    shadowColor:
-                                                        Colors.transparent,
-                                                    shape: CircleBorder(),
-                                                    padding: EdgeInsets.all(12),
-                                                    primary: Colors
-                                                        .white, // <-- Button color
-                                                    onPrimary: Colors
-                                                        .grey, // <-- Splash color
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.fromLTRB(
-                                                26, 16, 26, 16),
-                                            padding: EdgeInsets.fromLTRB(
-                                                30, 10, 20, 10),
-                                            height: 100,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFCCA1E56),
-                                              border: Border.all(
-                                                  color: Color(0xFFD62D64)),
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(30)),
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0x33000000),
-                                                  blurRadius: 20.0,
-                                                  offset: Offset(4, 4),
-                                                ),
-                                              ],
-                                            ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 6,
-                                                  height: 6,
-                                                  decoration: new BoxDecoration(
-                                                    color: Color(0xFFFF92B7),
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(25, 0, 0, 0),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .stretch,
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .fromLTRB(
-                                                                  0, 0, 0, 4),
-                                                          child: Text(
-                                                            "8:30 AM",
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontSize: 16),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          "CAR WRAP SHOP",
-                                                          style: TextStyle(
-                                                              color: Color(
-                                                                  0xFFFF92B7),
-                                                              fontSize: 16),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: Icon(
-                                                      Icons
-                                                          .arrow_forward_outlined,
-                                                      color: Colors.black),
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    shadowColor:
-                                                        Colors.transparent,
-                                                    shape: CircleBorder(),
-                                                    padding: EdgeInsets.all(12),
-                                                    primary: Colors
-                                                        .white, // <-- Button color
-                                                    onPrimary: Colors
-                                                        .grey, // <-- Splash color
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ))
-                                ],
-                              ),
-                            ),
-                            Align(
-                                alignment: Alignment.bottomCenter,
-                                child: AnnotatedRegion<SystemUiOverlayStyle>(
-                                  value: SystemUiOverlayStyle.light.copyWith(
-                                      //statusBarColor: Colors.purple,
-                                      systemNavigationBarColor:
-                                          Color(0xFFD62D64),
-                                      systemNavigationBarDividerColor:
-                                          Colors.black),
-                                  child: Stack(
-                                    children: [
-                                      ClipPath(
-                                        clipper: BottomMenuClipper(),
-                                        child: Container(
-                                          height: 120,
-                                          color: Colors
-                                              .white, //Color(0xFFF8F8F8), //TODO: transparent bottom bar
                                           child: Row(
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                CrossAxisAlignment.center,
                                             children: [
-                                              Expanded(
-                                                  flex: 3,
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .stretch,
-                                                    children: [
-                                                      Expanded(
-                                                          flex: 1,
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .only(
-                                                                    top: 10),
-                                                            child: TextButton(
-                                                                child: Text(
-                                                                    "UPCOMING",
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .black)),
-                                                                onPressed: () =>
-                                                                    {},
-                                                                style: TextButton.styleFrom(
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .white,
-                                                                    shape: const RoundedRectangleBorder(
-                                                                        borderRadius:
-                                                                            BorderRadius.all(Radius.circular(30))))),
-                                                          )),
-                                                      Expanded(
-                                                          flex: 1,
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .stretch,
-                                                            children: [
-                                                              Expanded(
-                                                                child: TextButton(
-                                                                    child: Icon(
-                                                                        Icons
-                                                                            .local_taxi,
-                                                                        color: Color(
-                                                                            0xFFD1D7DE)),
-                                                                    onPressed:
-                                                                        () =>
-                                                                            {}),
-                                                              ),
-                                                              Expanded(
-                                                                child: TextButton(
-                                                                    child: Icon(
-                                                                        Icons
-                                                                            .rice_bowl,
-                                                                        color: Color(
-                                                                            0xFFD1D7DE)),
-                                                                    onPressed:
-                                                                        () =>
-                                                                            {}),
-                                                              ),
-                                                            ],
-                                                          )),
-                                                    ],
-                                                  )),
-                                              Flexible(
-                                                flex: 2,
-                                                child: Container(
-                                                    //color: Colors.yellow,
-                                                    ),
+                                              Container(
+                                                width: 6,
+                                                height: 6,
+                                                decoration: new BoxDecoration(
+                                                  color: Color(0xFFFF92B7),
+                                                  shape: BoxShape.circle,
+                                                ),
                                               ),
                                               Expanded(
-                                                  flex: 3,
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          25, 0, 0, 0),
                                                   child: Column(
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .stretch,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
                                                     children: [
-                                                      Expanded(
-                                                          flex: 1,
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .only(
-                                                                    top: 10),
-                                                            child: TextButton(
-                                                                child: Text(
-                                                                    "MY HISTORY",
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .black)),
-                                                                onPressed: () =>
-                                                                    {},
-                                                                style: TextButton.styleFrom(
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .white,
-                                                                    shape: const RoundedRectangleBorder(
-                                                                        borderRadius:
-                                                                            BorderRadius.all(Radius.circular(30))))),
-                                                          )),
-                                                      Expanded(
-                                                          flex: 1,
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .stretch,
-                                                            children: [
-                                                              Expanded(
-                                                                child: TextButton(
-                                                                    child: Icon(
-                                                                        Icons
-                                                                            .beenhere,
-                                                                        color: Color(
-                                                                            0xFFD1D7DE)),
-                                                                    onPressed:
-                                                                        () =>
-                                                                            {}),
-                                                              ),
-                                                              Expanded(
-                                                                child: TextButton(
-                                                                    child: Icon(
-                                                                        Icons
-                                                                            .settings_rounded,
-                                                                        color: Color(
-                                                                            0xFFD1D7DE)),
-                                                                    onPressed:
-                                                                        () =>
-                                                                            {}),
-                                                              ),
-                                                            ],
-                                                          )),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .fromLTRB(
+                                                                0, 0, 0, 4),
+                                                        child: Text(
+                                                          "8:30 AM",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 16),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "CAR WRAP SHOP",
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xFFFF92B7),
+                                                            fontSize: 16),
+                                                      ),
                                                     ],
-                                                  )),
+                                                  ),
+                                                ),
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {},
+                                                child: Icon(
+                                                    Icons
+                                                        .arrow_forward_outlined,
+                                                    color: Colors.black),
+                                                style: ElevatedButton.styleFrom(
+                                                  shadowColor:
+                                                      Colors.transparent,
+                                                  shape: CircleBorder(),
+                                                  padding: EdgeInsets.all(12),
+                                                  primary: Colors
+                                                      .white, // <-- Button color
+                                                  onPrimary: Colors
+                                                      .grey, // <-- Splash color
+                                                ),
+                                              )
                                             ],
                                           ),
                                         ),
-                                      ),
-                                      Container(
-                                        alignment: Alignment.topCenter,
-                                        width: double.infinity,
-                                        height: 100,
-                                        child: ClipOval(
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Color(0x55555555),
-                                                  blurRadius: 30.0,
-                                                  offset: Offset(0, 0),
+                                        Container(
+                                          margin: EdgeInsets.fromLTRB(
+                                              26, 16, 26, 16),
+                                          padding: EdgeInsets.fromLTRB(
+                                              30, 10, 20, 10),
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFCCA1E56),
+                                            border: Border.all(
+                                                color: Color(0xFFD62D64)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30)),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Color(0x33000000),
+                                                blurRadius: 20.0,
+                                                offset: Offset(4, 4),
+                                              ),
+                                            ],
+                                          ),
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: 6,
+                                                height: 6,
+                                                decoration: new BoxDecoration(
+                                                  color: Color(0xFFFF92B7),
+                                                  shape: BoxShape.circle,
                                                 ),
-                                              ],
-                                            ),
-                                            height: 100,
-                                            width: 100,
-                                            alignment: Alignment.center,
-                                            child: ClipOval(
-                                              child: Container(
-                                                height: 86,
-                                                width: 86,
-                                                color: Colors.white,
-                                                alignment: Alignment.center,
-                                                child: ClipOval(
-                                                  child: Container(
-                                                    height: 78,
-                                                    width: 78,
-                                                    child: TextButton(
-                                                        onPressed: () {},
-                                                        child: SizedBox(
-                                                          height: 30,
-                                                          child: FittedBox(
-                                                              child: Icon(
-                                                                  Icons
-                                                                      .arrow_upward_sharp,
-                                                                  color: Color(
-                                                                      0xFFB6093C))),
-                                                        )),
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      color: Color(0xFFF7F7F7),
-                                                    ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          25, 0, 0, 0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .stretch,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .fromLTRB(
+                                                                0, 0, 0, 4),
+                                                        child: Text(
+                                                          "8:30 AM",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 16),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "CAR WRAP SHOP",
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xFFFF92B7),
+                                                            fontSize: 16),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
-                                            ),
+                                              ElevatedButton(
+                                                onPressed: () {},
+                                                child: Icon(
+                                                    Icons
+                                                        .arrow_forward_outlined,
+                                                    color: Colors.black),
+                                                style: ElevatedButton.styleFrom(
+                                                  shadowColor:
+                                                      Colors.transparent,
+                                                  shape: CircleBorder(),
+                                                  padding: EdgeInsets.all(12),
+                                                  primary: Colors
+                                                      .white, // <-- Button color
+                                                  onPrimary: Colors
+                                                      .grey, // <-- Splash color
+                                                ),
+                                              )
+                                            ],
                                           ),
                                         ),
-                                      )
-                                    ],
+                                        Container(
+                                          margin: EdgeInsets.fromLTRB(
+                                              26, 16, 26, 16),
+                                          padding: EdgeInsets.fromLTRB(
+                                              30, 10, 20, 10),
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFCCA1E56),
+                                            border: Border.all(
+                                                color: Color(0xFFD62D64)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30)),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Color(0x33000000),
+                                                blurRadius: 20.0,
+                                                offset: Offset(4, 4),
+                                              ),
+                                            ],
+                                          ),
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: 6,
+                                                height: 6,
+                                                decoration: new BoxDecoration(
+                                                  color: Color(0xFFFF92B7),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          25, 0, 0, 0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .stretch,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .fromLTRB(
+                                                                0, 0, 0, 4),
+                                                        child: Text(
+                                                          "8:30 AM",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 16),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "CAR WRAP SHOP",
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xFFFF92B7),
+                                                            fontSize: 16),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {},
+                                                child: Icon(
+                                                    Icons
+                                                        .arrow_forward_outlined,
+                                                    color: Colors.black),
+                                                style: ElevatedButton.styleFrom(
+                                                  shadowColor:
+                                                      Colors.transparent,
+                                                  shape: CircleBorder(),
+                                                  padding: EdgeInsets.all(12),
+                                                  primary: Colors
+                                                      .white, // <-- Button color
+                                                  onPrimary: Colors
+                                                      .grey, // <-- Splash color
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.fromLTRB(
+                                              26, 16, 26, 16),
+                                          padding: EdgeInsets.fromLTRB(
+                                              30, 10, 20, 10),
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFCCA1E56),
+                                            border: Border.all(
+                                                color: Color(0xFFD62D64)),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30)),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Color(0x33000000),
+                                                blurRadius: 20.0,
+                                                offset: Offset(4, 4),
+                                              ),
+                                            ],
+                                          ),
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: 6,
+                                                height: 6,
+                                                decoration: new BoxDecoration(
+                                                  color: Color(0xFFFF92B7),
+                                                  shape: BoxShape.circle,
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          25, 0, 0, 0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .stretch,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .fromLTRB(
+                                                                0, 0, 0, 4),
+                                                        child: Text(
+                                                          "8:30 AM",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 16),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "CAR WRAP SHOP",
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xFFFF92B7),
+                                                            fontSize: 16),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {},
+                                                child: Icon(
+                                                    Icons
+                                                        .arrow_forward_outlined,
+                                                    color: Colors.black),
+                                                style: ElevatedButton.styleFrom(
+                                                  shadowColor:
+                                                      Colors.transparent,
+                                                  shape: CircleBorder(),
+                                                  padding: EdgeInsets.all(12),
+                                                  primary: Colors
+                                                      .white, // <-- Button color
+                                                  onPrimary: Colors
+                                                      .grey, // <-- Splash color
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ))
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
-                      child: AspectRatio(
-                        aspectRatio: 1.07,
-                        child: ClipPath(
-                          clipper: FirstClipper(),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Color(0xFFb81a48),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(48))),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                      child: AspectRatio(
-                        aspectRatio: 1.23,
-                        child: ClipPath(
-                          clipper: SecondClipper(),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Color(
-                                    0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(48))),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: AspectRatio(
-                        aspectRatio: 1.4,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0x44000000),
-                                blurRadius: 50.0,
-                                offset: Offset(0, -10),
-                              ),
-                            ],
-                            borderRadius: BorderRadius.all(Radius.circular(48)),
-                          ),
-                          child: ClipPath(
-                            clipper: ThirdClipper(),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(48),
-                                    bottomRight: Radius.circular(48)),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                      child: Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                                      child: Text("Select Date",
-                                          style: TextStyle(fontSize: 34)),
-                                    ),
-                                  )),
-                                  Text("Select available slot",
-                                      style:
-                                          TextStyle(color: Color(0xFFB1BABf))),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Center(
-                                      child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            TextButton(
-                                              onPressed: () {},
-                                              child: Icon(
-                                                Icons.arrow_left,
-                                                color: Color(0xFFB1BABF),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.fromLTRB(
-                                                      10, 0, 10, 0),
-                                              child: Text("JUNE",
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color:
-                                                          Color(0xFFB1BABF))),
-                                            ),
-                                            TextButton(
-                                              onPressed: () {},
-                                              child: Icon(
-                                                Icons.arrow_right,
-                                                color: Color(0xFFB1BABF),
-                                              ),
-                                            )
-                                          ]),
-                                    ),
-                                  ),
-                                  Flexible(
-                                    flex: 2,
-                                    child: Padding(
-                                        padding: const EdgeInsets.fromLTRB(
-                                            0, 0, 0, 0),
-                                        child: Container(
-                                            height: 110, child: DaySlider())),
-                                  )
-                                ],
-                              ),
+                              ],
                             ),
                           ),
-                        ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: AnnotatedRegion<SystemUiOverlayStyle>(
+                              value: SystemUiOverlayStyle.light.copyWith(
+                                  //statusBarColor: Colors.purple,
+                                  systemNavigationBarColor: Color(0xFFD62D64),
+                                  systemNavigationBarDividerColor:
+                                      Colors.black),
+                              child: BottomTabBar(),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                    child: AspectRatio(
+                      aspectRatio: 1.07,
+                      child: ClipPath(
+                        clipper: FirstClipper(),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xFFb81a48),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(48))),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    child: AspectRatio(
+                      aspectRatio: 1.23,
+                      child: ClipPath(
+                        clipper: SecondClipper(),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color:
+                                  Color(0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(48))),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: AspectRatio(
+                      aspectRatio: 1.4,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x44000000),
+                              blurRadius: 50.0,
+                              offset: Offset(0, -10),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(Radius.circular(48)),
+                        ),
+                        child: ClipPath(
+                          clipper: ThirdClipper(),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(48),
+                                  bottomRight: Radius.circular(48)),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                    child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                                    child: Text("Select Date",
+                                        style: TextStyle(fontSize: 34)),
+                                  ),
+                                )),
+                                Text("Select available slot",
+                                    style: TextStyle(color: Color(0xFFB1BABf))),
+                                Expanded(
+                                  flex: 1,
+                                  child: Center(
+                                    child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          TextButton(
+                                            onPressed: () {},
+                                            child: Icon(
+                                              Icons.arrow_left,
+                                              color: Color(0xFFB1BABF),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                10, 0, 10, 0),
+                                            child: Text("JUNE",
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xFFB1BABF))),
+                                          ),
+                                          TextButton(
+                                            onPressed: () {},
+                                            child: Icon(
+                                              Icons.arrow_right,
+                                              color: Color(0xFFB1BABF),
+                                            ),
+                                          )
+                                        ]),
+                                  ),
+                                ),
+                                Flexible(
+                                  flex: 2,
+                                  child: Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                      child: Container(
+                                          height: 110, child: DaySlider())),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -1017,134 +806,5 @@ class FirstClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper oldClipper) {
     return true;
-  }
-}
-
-class BottomMenuClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    return _getPath(size);
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
-
-  double degToRad(num deg) => deg * (Math.pi / 180.0);
-  num radToDeg(double rad) => rad * 180.0 / Math.pi;
-
-  Path _getPath(Size size) {
-    var path = Path();
-    var cornersDiameter = 60.0;
-    var cornersRadius = cornersDiameter / 2;
-    var buttonRadius = 43.0; //size.width / 4; //60.0;
-    var A = 90.0;
-    var yOffset = 10.0;
-    var alpha = 80;
-    var a = Math.sin(degToRad(90 - alpha)) * (buttonRadius);
-    var b = Math.cos(degToRad(90 - alpha)) * (buttonRadius);
-    var d = buttonRadius - a;
-
-    path.addArc(
-        Rect.fromCircle(
-            center: Offset(cornersRadius, cornersRadius + yOffset),
-            radius: cornersRadius),
-        degToRad(-180),
-        degToRad(90));
-
-    path.lineTo(size.width / 2 - A, 0 + yOffset);
-    path.quadraticBezierTo(
-        size.width / 2 - b - 10, 0 + yOffset, size.width / 2 - b, d);
-
-    path.arcTo(
-        Rect.fromCircle(
-            center: Offset(size.width / 2, buttonRadius + 7),
-            radius: buttonRadius),
-        degToRad(-90 - alpha + 5), //TODO: fuszerka
-        degToRad(alpha * 2 - 10), //TODO: fuszerka
-        false);
-
-    path.quadraticBezierTo(
-        size.width / 2 + b + 10, 0 + yOffset, size.width / 2 + A, 0 + yOffset);
-
-    path.lineTo(size.width / 2 + A, 0 + yOffset);
-
-    path.lineTo(size.width - cornersDiameter / 2, 0 + yOffset);
-    path.arcTo(
-        Rect.fromCircle(
-            center: Offset(size.width - cornersRadius, cornersRadius + yOffset),
-            radius: cornersRadius),
-        degToRad(-90),
-        degToRad(90),
-        false);
-    path.lineTo(size.width, cornersDiameter / 2);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.lineTo(0, cornersDiameter / 2);
-    path.close();
-    return path;
-  }
-}
-
-class BottomMenuClipper2 extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    return _getPath(size);
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
-
-  double degToRad(num deg) => deg * (Math.pi / 180.0);
-  num radToDeg(double rad) => rad * 180.0 / Math.pi;
-
-  Path _getPath(Size size) {
-    var path = Path();
-    var cornersDiameter = 60.0;
-    var cornersRadius = cornersDiameter / 2;
-    var buttonRadius = 50.0; //size.width / 4; //60.0;
-    var A = 90.0;
-    var yOffset = 10.0;
-    var alpha = 70;
-    var a = Math.sin(degToRad(90 - alpha)) * (buttonRadius);
-    var b = Math.cos(degToRad(90 - alpha)) * (buttonRadius);
-    var d = buttonRadius - a;
-
-    path.addArc(
-        Rect.fromCircle(
-            center: Offset(cornersRadius, cornersRadius + yOffset),
-            radius: cornersRadius),
-        degToRad(-180),
-        degToRad(90));
-
-    path.lineTo(size.width / 2 - A, 0 + yOffset);
-    path.quadraticBezierTo(
-        size.width / 2 - b - 10, 0 + yOffset, size.width / 2 - b, d);
-
-    path.arcTo(
-        Rect.fromCircle(
-            center: Offset(size.width / 2, buttonRadius), radius: buttonRadius),
-        degToRad(-90 - alpha),
-        degToRad(alpha * 2),
-        false);
-
-    path.quadraticBezierTo(
-        size.width / 2 + b + 10, 0 + yOffset, size.width / 2 + A, 0 + yOffset);
-
-    path.lineTo(size.width / 2 + A, 0 + yOffset);
-
-    path.lineTo(size.width - cornersDiameter / 2, 0 + yOffset);
-    path.arcTo(
-        Rect.fromCircle(
-            center: Offset(size.width - cornersRadius, cornersRadius + yOffset),
-            radius: cornersRadius),
-        degToRad(-90),
-        degToRad(90),
-        false);
-    path.lineTo(size.width, cornersDiameter / 2);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.lineTo(0, cornersDiameter / 2);
-    path.close();
-    return path;
   }
 }
