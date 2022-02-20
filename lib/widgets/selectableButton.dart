@@ -20,8 +20,8 @@ class SelectableButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            height: 60,
-            width: 60,
+            height: 54,
+            width: 54,
             decoration: new BoxDecoration(
               color: isSelected
                   ? Color(0xFFCC245D)
@@ -53,7 +53,7 @@ class SelectableButton extends StatelessWidget {
                 child: Text(
                   title,
                   style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 20,
                       color: isSelected
                           ? Colors.white
                           : isUnavailable
@@ -65,7 +65,7 @@ class SelectableButton extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
             child: Text(subtitle,
                 style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.bold,
                     color: isSelected
                         ? Color(0xFFCC245D)

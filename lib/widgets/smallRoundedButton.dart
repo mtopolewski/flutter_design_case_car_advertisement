@@ -7,12 +7,12 @@ class SmallRoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 26,
+      height: 24,
       child: ElevatedButton(
         onPressed: () {},
         child: Container(
-            height: 26,
-            width: 26,
+            height: 24,
+            width: 24,
             decoration: BoxDecoration(
               border: Border.all(color: Color(0xFFD42E64), width: 2),
               color: Colors.transparent,

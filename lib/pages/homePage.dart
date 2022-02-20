@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_design_case_car_advertisement/items/appointment_item.dart';
+import 'package:flutter_design_case_car_advertisement/items/appointmentItem.dart';
 import 'package:flutter_design_case_car_advertisement/widgets/bottomTabBar.dart';
 import 'package:flutter_design_case_car_advertisement/widgets/smallRoundedButton.dart';
 import 'package:flutter_design_case_car_advertisement/widgets/topSection.dart';
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 240, 0,
+                padding: const EdgeInsets.fromLTRB(0, 220, 0,
                     0), //TODO: replace padding with some more smart approach
                 child: Column(
                   children: [
@@ -112,6 +112,7 @@ class HomePage extends StatelessWidget {
                                                 Text(
                                                   "SELECT TIME",
                                                   style: TextStyle(
+                                                      fontSize: 12,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: Colors.white),
@@ -141,7 +142,6 @@ class HomePage extends StatelessWidget {
                             alignment: Alignment.bottomCenter,
                             child: AnnotatedRegion<SystemUiOverlayStyle>(
                               value: SystemUiOverlayStyle.light.copyWith(
-                                  //statusBarColor: Colors.purple,
                                   systemNavigationBarColor: Color(0xFFD62D64),
                                   systemNavigationBarDividerColor:
                                       Colors.black),
@@ -155,130 +155,6 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               TopSection(),
-              // Stack(
-              //   children: [
-              //     Padding(
-              //       padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
-              //       child: AspectRatio(
-              //         aspectRatio: 1.07,
-              //         child: ClipPath(
-              //           clipper: FirstClipper(),
-              //           child: Container(
-              //             decoration: BoxDecoration(
-              //                 color: Color(0xFFb81a48),
-              //                 borderRadius:
-              //                     BorderRadius.all(Radius.circular(48))),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //     Padding(
-              //       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-              //       child: AspectRatio(
-              //         aspectRatio: 1.23,
-              //         child: ClipPath(
-              //           clipper: SecondClipper(),
-              //           child: Container(
-              //             decoration: BoxDecoration(
-              //                 color:
-              //                     Color(0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
-              //                 borderRadius:
-              //                     BorderRadius.all(Radius.circular(48))),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //     Padding(
-              //       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              //       child: AspectRatio(
-              //         aspectRatio: 1.4,
-              //         child: Container(
-              //           decoration: BoxDecoration(
-              //             color: Colors.transparent,
-              //             boxShadow: [
-              //               BoxShadow(
-              //                 color: Color(0x44000000),
-              //                 blurRadius: 50.0,
-              //                 offset: Offset(0, -10),
-              //               ),
-              //             ],
-              //             borderRadius: BorderRadius.all(Radius.circular(48)),
-              //           ),
-              //           child: ClipPath(
-              //             clipper: ThirdClipper(),
-              //             child: Container(
-              //               decoration: BoxDecoration(
-              //                 color: Colors.white,
-              //                 borderRadius: BorderRadius.only(
-              //                     bottomLeft: Radius.circular(48),
-              //                     bottomRight: Radius.circular(48)),
-              //               ),
-              //               child: Column(
-              //                 crossAxisAlignment: CrossAxisAlignment.center,
-              //                 children: [
-              //                   Expanded(
-              //                       child: Align(
-              //                     alignment: Alignment.bottomCenter,
-              //                     child: Padding(
-              //                       padding:
-              //                           const EdgeInsets.fromLTRB(0, 0, 0, 8),
-              //                       child: Text("Select Date",
-              //                           style: TextStyle(fontSize: 34)),
-              //                     ),
-              //                   )),
-              //                   Text("Select available slot",
-              //                       style: TextStyle(color: Color(0xFFB1BABf))),
-              //                   Expanded(
-              //                     flex: 1,
-              //                     child: Center(
-              //                       child: Row(
-              //                           mainAxisSize: MainAxisSize.min,
-              //                           mainAxisAlignment:
-              //                               MainAxisAlignment.center,
-              //                           children: [
-              //                             TextButton(
-              //                               onPressed: () {},
-              //                               child: Icon(
-              //                                 Icons.arrow_left,
-              //                                 color: Color(0xFFB1BABF),
-              //                               ),
-              //                             ),
-              //                             Padding(
-              //                               padding: const EdgeInsets.fromLTRB(
-              //                                   10, 0, 10, 0),
-              //                               child: Text("JUNE",
-              //                                   style: TextStyle(
-              //                                       fontSize: 12,
-              //                                       fontWeight: FontWeight.bold,
-              //                                       color: Color(0xFFB1BABF))),
-              //                             ),
-              //                             TextButton(
-              //                               onPressed: () {},
-              //                               child: Icon(
-              //                                 Icons.arrow_right,
-              //                                 color: Color(0xFFB1BABF),
-              //                               ),
-              //                             )
-              //                           ]),
-              //                     ),
-              //                   ),
-              //                   Flexible(
-              //                     flex: 2,
-              //                     child: Padding(
-              //                         padding:
-              //                             const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              //                         child: Container(
-              //                             height: 110, child: DaySlider())),
-              //                   )
-              //                 ],
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ],
           ),
         ),

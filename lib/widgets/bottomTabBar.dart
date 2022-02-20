@@ -30,7 +30,8 @@ class BottomTabBar extends StatelessWidget {
                           child: TextButton(
                             child: Text(
                               "UPCOMING",
-                              style: TextStyle(color: Colors.black),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 12),
                             ),
                             onPressed: () => {},
                             style: TextButton.styleFrom(
@@ -83,8 +84,11 @@ class BottomTabBar extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 10),
                           child: TextButton(
                             child: SizedBox(
-                              child: Text("MY HISTORY",
-                                  style: TextStyle(color: Colors.black)),
+                              child: Text(
+                                "MY HISTORY",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 12),
+                              ),
                             ),
                             onPressed: () => {},
                             style: TextButton.styleFrom(

@@ -3,6 +3,8 @@ import 'package:flutter_design_case_car_advertisement/widgets/daySlider.dart';
 
 class TopSection extends StatelessWidget {
   const TopSection({Key? key}) : super(key: key);
+  final double height = 260;
+  final double _hightDiff = 8;
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +13,14 @@ class TopSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
           child: Container(
-            height: 290,
+            height: height + 2 * _hightDiff,
             child: ClipPath(
               clipper: FirstClipper(),
               child: Container(
                 decoration: BoxDecoration(
                   color: Color(0xFFb81a48),
                   borderRadius: BorderRadius.all(
-                    Radius.circular(48),
+                    Radius.circular(24),
                   ),
                 ),
               ),
@@ -28,14 +30,14 @@ class TopSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
           child: Container(
-            height: 280,
+            height: height + _hightDiff,
             child: ClipPath(
               clipper: SecondClipper(),
               child: Container(
                 decoration: BoxDecoration(
                   color: Color(0xFFdb2c66), //0xFFCE235B //0x0FFC11A52
                   borderRadius: BorderRadius.all(
-                    Radius.circular(48),
+                    Radius.circular(24),
                   ),
                 ),
               ),
@@ -45,7 +47,7 @@ class TopSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Container(
-            height: 270,
+            height: height,
             decoration: BoxDecoration(
               color: Colors.transparent,
               boxShadow: [
@@ -65,29 +67,28 @@ class TopSection extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(48),
-                    bottomRight: Radius.circular(48),
+                    bottomLeft: Radius.circular(24),
+                    bottomRight: Radius.circular(24),
                   ),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
-                        child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                        child: Text(
-                          "Select Date",
-                          style: TextStyle(fontSize: 34),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                          child: Text(
+                            "Select Date",
+                            style: TextStyle(fontSize: 28),
+                          ),
                         ),
                       ),
-                    )),
+                    ),
                     Text(
                       "Select available slot",
-                      style: TextStyle(
-                        color: Color(0xFFB1BABf),
-                      ),
+                      style: TextStyle(color: Color(0xFFB1BABf), fontSize: 12),
                     ),
                     Expanded(
                       flex: 1,
@@ -109,7 +110,7 @@ class TopSection extends StatelessWidget {
                                 child: Text(
                                   "JUNE",
                                   style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 11,
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xFFB1BABF),
                                   ),
@@ -126,13 +127,10 @@ class TopSection extends StatelessWidget {
                       ),
                     ),
                     Flexible(
-                      flex: 2,
+                      flex: 3,
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        child: Container(
-                          height: 110,
-                          child: DaySlider(),
-                        ),
+                        child: DaySlider(),
                       ),
                     )
                   ],
@@ -156,8 +154,8 @@ class ThirdClipper extends CustomClipper<Path> {
 
     var offsetX = 23;
 
-    var fsepY = size.height * 0.95;
-    var fcpX = size.width * 0.4;
+    var fsepY = size.height * 0.92;
+    var fcpX = size.width * 0.40;
 
     var firstControlPoint = Offset(fcpX, size.height);
     var firstEndPoint = Offset(size.width / 2 - offsetX, fsepY);
@@ -165,7 +163,7 @@ class ThirdClipper extends CustomClipper<Path> {
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstEndPoint.dx, firstEndPoint.dy);
 
-    var secondControlPoint = Offset(size.width / 2, size.height * 0.89);
+    var secondControlPoint = Offset(size.width / 2, size.height * 0.81);
     var secondEndPoint = Offset(size.width / 2 + offsetX, fsepY);
 
     path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
@@ -198,7 +196,7 @@ class SecondClipper extends CustomClipper<Path> {
 
     var offsetX = 20;
 
-    var fsepY = size.height * 0.95;
+    var fsepY = size.height * 0.93;
     var fcpX = size.width * 0.4;
 
     var firstControlPoint = Offset(fcpX, size.height);
@@ -207,7 +205,7 @@ class SecondClipper extends CustomClipper<Path> {
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstEndPoint.dx, firstEndPoint.dy);
 
-    var secondControlPoint = Offset(size.width / 2, size.height * 0.895);
+    var secondControlPoint = Offset(size.width / 2, size.height * 0.84);
     var secondEndPoint = Offset(size.width / 2 + offsetX, fsepY);
 
     path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
@@ -240,7 +238,7 @@ class FirstClipper extends CustomClipper<Path> {
 
     var offsetX = 17;
 
-    var fsepY = size.height * 0.95;
+    var fsepY = size.height * 0.94;
     var fcpX = size.width * 0.4;
 
     var firstControlPoint = Offset(fcpX, size.height);
@@ -249,7 +247,7 @@ class FirstClipper extends CustomClipper<Path> {
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstEndPoint.dx, firstEndPoint.dy);
 
-    var secondControlPoint = Offset(size.width / 2, size.height * 0.91);
+    var secondControlPoint = Offset(size.width / 2, size.height * 0.86);
     var secondEndPoint = Offset(size.width / 2 + offsetX, fsepY);
 
     path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,

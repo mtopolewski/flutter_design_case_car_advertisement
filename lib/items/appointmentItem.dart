@@ -8,11 +8,11 @@ class AppointmentItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.fromLTRB(26, 16, 26, 16),
       padding: EdgeInsets.fromLTRB(30, 10, 20, 10),
-      height: 100,
+      height: 84,
       decoration: BoxDecoration(
         color: Color(0xFFCCA1E56),
         border: Border.all(color: Color(0xFFD62D64)),
-        borderRadius: BorderRadius.all(Radius.circular(30)),
+        borderRadius: BorderRadius.all(Radius.circular(26)),
         boxShadow: [
           BoxShadow(
             color: Color(0x33000000),
@@ -43,26 +43,29 @@ class AppointmentItem extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 4),
                     child: Text(
                       "8:30 AM",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ),
                   Text(
                     "CAR WRAP SHOP",
-                    style: TextStyle(color: Color(0xFFFF92B7), fontSize: 16),
+                    style: TextStyle(color: Color(0xFFFF92B7), fontSize: 12),
                   ),
                 ],
               ),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Icon(Icons.arrow_forward_outlined, color: Colors.black),
-            style: ElevatedButton.styleFrom(
-              shadowColor: Colors.transparent,
-              shape: CircleBorder(),
-              padding: EdgeInsets.all(12),
-              primary: Colors.white, // <-- Button color
-              onPrimary: Colors.grey, // <-- Splash color
+          SizedBox(
+            height: 46,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Icon(Icons.arrow_forward_outlined, color: Colors.black),
+              style: ElevatedButton.styleFrom(
+                shadowColor: Colors.transparent,
+                shape: CircleBorder(),
+                //padding: EdgeInsets.all(16),
+                primary: Colors.white, // <-- Button color
+                onPrimary: Colors.grey, // <-- Splash color
+              ),
             ),
           )
         ],

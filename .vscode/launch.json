@@ -41,7 +41,7 @@
 			"deviceId": "ZY326SHSSH"
 		},
 		{
-			"name": "iPhone",
+			"name": "iPhone 13 sim",
 			"request": "launch",
 			"type": "dart",
 			"deviceId": "iPhone 13"
