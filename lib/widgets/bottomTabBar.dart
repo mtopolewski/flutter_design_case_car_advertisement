@@ -256,8 +256,8 @@ class BottomMenuClipper extends CustomClipper<Path> {
         Rect.fromCircle(
             center: Offset(size.width / 2, buttonRadius + 7),
             radius: buttonRadius),
-        degToRad(-90 - alpha + 5), //TODO: fuszerka
-        degToRad(alpha * 2 - 10), //TODO: fuszerka
+        degToRad(-90 - alpha + 5),
+        degToRad(alpha * 2 - 10),
         false);
 
     path.quadraticBezierTo(
